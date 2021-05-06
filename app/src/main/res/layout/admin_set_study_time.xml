@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!--<TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="2">
+
+                    <TableRow
+                        android:layout_marginTop="10dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textSize="15sp"
+                            android:textColor="@color/blue_4"
+                            android:text="Study Day"/>
+
+                        <Spinner
+                            android:id="@+id/study_day_spinner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="20dp"
+                            android:entries="@array/study_day"/>
+                        <TextView/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_marginTop="10dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textSize="15sp"
+                            android:textColor="@color/blue_4"
+                            android:text="Start Time"/>
+
+                        <TextView
+                            android:id="@+id/start_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="20dp"
+                            android:textSize="15sp"
+                            android:text=""/>
+                        <TextView/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TimePicker
+                            android:id="@+id/start_time_picker"
+                            android:layout_width="359dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="10dp"
+                            android:layout_span="3"
+                            android:timePickerMode="spinner" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_marginTop="10dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textSize="15sp"
+                            android:textColor="@color/blue_4"
+                            android:text="End Time"/>
+
+                        <TextView
+                            android:id="@+id/end_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="20dp"
+                            android:textSize="15sp"
+                            android:text=""/>
+
+                        <TextView/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TimePicker
+                            android:id="@+id/end_time_picker"
+                            android:layout_width="359dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="10dp"
+                            android:layout_span="3"
+                            android:timePickerMode="spinner" />
+                    </TableRow>
+                </TableLayout>-->
+
+                <include android:id="@+id/one_time_slot"
+                    layout="@layout/study_timepicker"/>
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/delete_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_normal"
+                    android:textColor="@color/blue_4"
+                    android:layout_weight="1"
+                    android:layout_marginRight="10dp"
+                    android:visibility="gone"
+                    android:text="Delete"/>
+                <Button
+                    android:id="@+id/break_up_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_normal"
+                    android:textColor="@color/blue_4"
+                    android:layout_weight="1"
+                    android:layout_marginRight="10dp"
+                    android:visibility="gone"
+                    android:text="Break Up the Time"/>
+                <Button
+                    android:id="@+id/submit_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_normal"
+                    android:textColor="@color/blue_4"
+                    android:layout_weight="1"
+                    android:text="Save"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_1"
+    >
+
+    <ImageButton
+        android:id="@+id/back_to_profile"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="left"
+        android:background="@android:color/transparent"
+        android:src="@drawable/svg_back"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:onClick="backToProfile"/>
+
+    <TextView
+        android:id="@+id/sign_in_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign In"
+        android:textSize="30sp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="50dp"/>
+
+    <TableLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/tablelayout">
+        <TableRow>
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="E-mail"
+                android:textSize="15sp"
+                android:layout_marginLeft="50dp"/>
+
+            <EditText
+                android:id="@+id/input_email"
+                android:layout_width="145dp"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:inputType="textEmailAddress"/>
+        </TableRow>
+        <TableRow>
+
+            <TextView
+                android:id="@+id/pwd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:text="Password"
+                android:textSize="15sp" />
+            <EditText
+                android:id="@+id/input_pwd"
+                android:layout_width="145dp"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+        </TableRow>
+        <TableRow>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_span="2"
+                android:layout_marginLeft="50dp"
+                android:text="Sign In" />
+        </TableRow>
+    </TableLayout>
+
+    <EditText
+        android:id="@+id/editTextTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword" />
+</LinearLayout>

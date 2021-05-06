@@ -1,0 +1,166 @@
+<resources>
+    <string name="app_name">Put Down Your Phone</string>
+    <string name="title_home">Home</string>
+    <string name="title_admin">Parent Mode</string>
+    <string name="title_usage">History Usage</string>
+    <string name="title_profile">Profile</string>
+
+
+    <string name="admin_app_limits">App Limits</string>
+    <string name="about_app_limits">introduction</string>
+
+    <string-array name="hours">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+    </string-array>
+
+    <string-array name="mins">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+        <item>32</item>
+        <item>33</item>
+        <item>34</item>
+        <item>35</item>
+        <item>36</item>
+        <item>37</item>
+        <item>38</item>
+        <item>39</item>
+        <item>40</item>
+        <item>41</item>
+        <item>42</item>
+        <item>43</item>
+        <item>44</item>
+        <item>45</item>
+        <item>46</item>
+        <item>47</item>
+        <item>48</item>
+        <item>49</item>
+        <item>50</item>
+        <item>51</item>
+        <item>52</item>
+        <item>53</item>
+        <item>54</item>
+        <item>55</item>
+        <item>56</item>
+        <item>57</item>
+        <item>58</item>
+        <item>59</item>
+    </string-array>
+
+    <string-array name="sleep_time">
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
+    <string name="admin_study_time">Study Time</string>
+    <string name="add_time">Add Time</string>
+    <string-array name="study_day">
+        <item>Mon</item>
+        <item>Tue</item>
+        <item>Wed</item>
+        <item>Thu</item>
+        <item>Fri</item>
+        <item>Sat</item>
+        <item>Sun</item>
+    </string-array>
+
+
+    <string name="admin_curfew_time">Curfew Time</string>
+
+
+    <string name="package_usage_stats_required">Package usage stats is required.</string>
+    <string name="ok">OK</string>
+    <string name="package_usage_stats_unavailable">Package usage stats unavailable.</string>
+    <string name="package_usage_stats_permission_available">Package usage stats permission is available. Starting preview.</string>
+
+
+    <string-array name="header_title">
+        <item></item>
+        <item>Mon</item>
+        <item>Tue</item>
+        <item>Wed</item>
+        <item>Thu</item>
+        <item>Fri</item>
+        <item>Sat</item>
+        <item>Sun</item>
+    </string-array>
+
+    <string-array name="sticker_color">
+        <item>#769fcd</item>
+    </string-array>
+
+
+    <!--usage-->
+    <string name="app_use_count">Use Count: </string>
+    <string name="app_use_time">Use Time: </string>
+    <string name="app_calculate_use_time">Calculate Use Time: </string>
+    <string name="app_start_use_time">Start Use Time: </string>
+    <string name="app_stop_use_time">Stop Use Time: </string>
+    <string name="app_total_use_time">Total Use Time: </string>
+
+    <string name="action_bar_title_1">Use Time Statistic</string>
+    <string name="action_bar_title_2">Use Count Statistic</string>
+    <string name="action_bar_title_3">Activity Information Statistic</string>
+
+    <string name="action_bar_title_permission">Permission</string>
+    <string name="action_bar_title_show_all">Show All</string>
+
+    <string name="activity_name">Activity Name</string>
+    <string name="activity_total_use_time">Activity Total Use Time</string>
+
+</resources>

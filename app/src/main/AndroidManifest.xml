@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="student.example.myapplication">
+
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".WelcomePage"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".profile.LoginPage"></activity>
+        <activity android:name=".admin.AdminSet" android:label="@string/title_admin"></activity>
+        <activity android:name=".admin.set.applimits.AppLimits" android:label="@string/admin_app_limits"></activity>
+        <activity
+            android:name=".admin.set.applimits.AddLimitActivity"
+            android:label="Add App Limit"
+            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert">
+        </activity>
+        <activity android:name=".admin.set.curfewtime.CurfewTime" android:label="@string/admin_curfew_time"></activity>
+        <activity android:name=".admin.set.studytime.StudyTime" android:label="@string/admin_study_time"></activity>
+        <activity android:name=".admin.set.studytime.AddStudyTime" android:label="@string/add_time"></activity>
+
+        <activity android:name=".admin.set.applimits.PatternLockPage"></activity>
+        <activity android:name=".admin.set.applimits.ResetPatternLock"></activity>
+
+
+        <activity android:name=".usage.ui.UseTimeDetailActivity">
+            <intent-filter>
+                <action android:name="student.example.myapplication.statistic.UseTimeDetail" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".home.LearningModule"></activity>
+
+
+        <receiver android:name=".admin.broadcast.ReceiverAppLock"
+            android:exported="true"
+            android:enabled="true"/>
+
+        <receiver android:name=".admin.broadcast.RestartServiceWhenStoped"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".admin.services.ServiceApplock"
+            android:exported="false"
+            android:enabled="true"/>
+
+        <service android:name=".admin.services.ServiceApplockJobIntent"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+
+        <!--<receiver android:name=".home.NotificationPublisher">
+            <intent-filter>
+                <action android:name="com.e_eduspace.TIMER_ACTION_REPEATING" />
+                <action android:name="com.e_eduspace.TIMER_ACTION" />
+            </intent-filter>
+        </receiver>-->
+
+    </application>
+
+</manifest>

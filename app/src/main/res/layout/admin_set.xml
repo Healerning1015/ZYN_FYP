@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:orientation="vertical">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1">
+        <TableRow
+            android:id="@+id/app_limits"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="@string/admin_app_limits" />
+            <TextView />
+
+            <ImageButton
+                android:id="@+id/go_to_app_limits"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:rotation="180"
+                android:src="@drawable/svg_back" />
+
+        </TableRow>
+        <TableRow>
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/blue_2"
+                android:layout_span="3"/>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/study_time"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="@string/admin_study_time" />
+            <TextView />
+
+            <ImageButton
+                android:id="@+id/go_to_study_time"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:rotation="180"
+                android:src="@drawable/svg_back" />
+        </TableRow>
+        <TableRow>
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/blue_2"
+                android:layout_span="3"/>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/curfew_time"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="@string/admin_curfew_time" />
+            <TextView />
+
+            <ImageButton
+                android:id="@+id/go_to_curfew_time"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:rotation="180"
+                android:src="@drawable/svg_back" />
+        </TableRow>
+        <TableRow>
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/blue_2"
+                android:layout_span="3"/>
+        </TableRow>
+
+        <TableRow>
+            <Button
+                android:id="@+id/save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_span="3"
+                android:layout_marginTop="20dp"
+                android:text="Save"/>
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

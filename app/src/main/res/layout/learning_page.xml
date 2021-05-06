@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="student.example.myapplication.home.LearningModule">
+
+
+    <ProgressBar
+        android:id="@+id/progressBarCircle"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="74dp"
+        android:background="@drawable/drawable_circle_green"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="100"
+        android:progressDrawable="@drawable/drawable_circle_red"
+        android:rotation="-90" />
+
+
+    <TextView
+        android:id="@+id/textViewTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/progressBarCircle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:text="00:00:00"
+        android:textColor="@color/blue_4"
+        android:textSize="40sp" />
+
+    <LinearLayout
+        android:id="@+id/tomatoBar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/progressBarCircle"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="36dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp">
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/tomatoBar"
+        android:layout_marginTop="50dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <ImageView
+                android:padding="10dp"
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                android:src="@mipmap/icontomato" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Study Time: "
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/show_study_time"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <ImageView
+                android:padding="10dp"
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                android:src="@mipmap/icon_break" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Break Time: "
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/show_break_time"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/imageViewBreak"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/progressBarCircle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="62dp"
+        app:srcCompat="@mipmap/icon_break"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/imageViewWork"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/progressBarCircle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="62dp"
+        app:srcCompat="@mipmap/icontomato"
+        android:visibility="gone"/>
+
+
+</RelativeLayout>
