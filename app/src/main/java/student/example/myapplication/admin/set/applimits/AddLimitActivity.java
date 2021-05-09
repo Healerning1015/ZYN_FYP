@@ -139,7 +139,16 @@ public class AddLimitActivity extends AppCompatActivity {
 
             }
         });
+
+        appLimitsDB.close();
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if(appLimitsDB != null){
+            appLimitsDB.close();
+        }
+    }
 
 }

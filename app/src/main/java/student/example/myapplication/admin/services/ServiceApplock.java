@@ -15,7 +15,6 @@ public class ServiceApplock extends IntentService {
     }
 
     private void runAppLock(){
-        Log.e("Current Class","ServiceApplock");
         long endTime = System.currentTimeMillis()+210;
         while(System.currentTimeMillis() < endTime){
             synchronized (this){

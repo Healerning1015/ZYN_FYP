@@ -185,7 +185,9 @@ public class AddStudyTime extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        endTimePicker.setEnabled(false);
+        if(mode == HomeFragment.REQUEST_BORROW){
+            endTimePicker.setEnabled(false);
+        }
         endTimePicker.setIs24HourView(true);
         endTimePicker.setCurrentHour(endHour);
         endTimePicker.setCurrentMinute(endMin);
@@ -197,6 +199,7 @@ public class AddStudyTime extends AppCompatActivity implements View.OnClickListe
                 endText.setText(hour + " : " + min);
                 schedule.getEndTime().setHour(hourOfDay);
                 schedule.getEndTime().setMinute(minute);
+
                 //如果结束时间可以调节，就会陷入一个开始结束一直互相调节的死循环，因此unable
                 /*
                 if(mode == HomeFragment.REQUEST_BORROW){

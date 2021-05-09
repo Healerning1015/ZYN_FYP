@@ -16,6 +16,7 @@ import java.sql.Blob;
 
 import student.example.myapplication.admin.set.applimits.AppInfo;
 import student.example.myapplication.home.LimitAppsList;
+import student.example.myapplication.home.LimitTimeList;
 
 public class AppLimitsDB extends SQLiteOpenHelper {
     private	static final int DATABASE_VERSION =	1;
@@ -53,23 +54,55 @@ public class AppLimitsDB extends SQLiteOpenHelper {
         limitAppsList.clear();
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_NAME, null, null, null, null, null, null);
-        while (cursor.moveToNext()) {
-            String id = cursor.getString(0);
-            String appName = cursor.getString(1);
-            String pkgName = cursor.getString(2);
-            byte[] logo = cursor.getBlob(3);
-            int limitHour = cursor.getInt(4);
-            int limitMinute = cursor.getInt(5);
-            boolean alwaysAllowed = (cursor.getInt(6) == 1);
+        try{
+            while (cursor.moveToNext()) {
+                String id = cursor.getString(0);
+                String appName = cursor.getString(1);
+                String pkgName = cursor.getString(2);
+                byte[] logo = cursor.getBlob(3);
+                int limitHour = cursor.getInt(4);
+                int limitMinute = cursor.getInt(5);
+                boolean alwaysAllowed = (cursor.getInt(6) == 1);
 
-            //Drawable logo_drawable = new BitmapDrawable(BitmapFactory.decodeByteArray(logo, 0, logo.length));
-            Bitmap bitmap = BitmapFactory.decodeByteArray(logo, 0, logo.length, null);
-            BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
-            Drawable drawable = bitmapDrawable;
-            limitAppsList.addLimit(id, appName, pkgName, drawable, limitHour, limitMinute, alwaysAllowed);
+                //Drawable logo_drawable = new BitmapDrawable(BitmapFactory.decodeByteArray(logo, 0, logo.length));
+                Bitmap bitmap = BitmapFactory.decodeByteArray(logo, 0, logo.length, null);
+                BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
+                Drawable drawable = bitmapDrawable;
+                limitAppsList.addLimit(id, appName, pkgName, drawable, limitHour, limitMinute, alwaysAllowed);
+            }
+        } finally {
+            cursor.close();
         }
-        cursor.close();
+
         return limitAppsList;
+    }
+
+    // Get all time
+    public LimitTimeList getAllLimitTime(LimitTimeList limitTimeList) {
+        limitTimeList.clear();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_NAME, null, null, null, null, null, null);
+        try{
+            while (cursor.moveToNext()) {
+                String id = cursor.getString(0);
+                String appName = cursor.getString(1);
+                String pkgName = cursor.getString(2);
+                byte[] logo = cursor.getBlob(3);
+                int limitHour = cursor.getInt(4);
+                int limitMinute = cursor.getInt(5);
+                boolean alwaysAllowed = (cursor.getInt(6) == 1);
+
+                //Drawable logo_drawable = new BitmapDrawable(BitmapFactory.decodeByteArray(logo, 0, logo.length));
+                Bitmap bitmap = BitmapFactory.decodeByteArray(logo, 0, logo.length, null);
+                BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
+                Drawable drawable = bitmapDrawable;
+                limitTimeList.addTime(pkgName, limitHour, limitMinute);
+            }
+        } finally {
+            cursor.close();
+        }
+
+        return limitTimeList;
     }
 
     // Add limit

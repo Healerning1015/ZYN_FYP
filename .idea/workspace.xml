@@ -12,7 +12,22 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fda580cc-a721-4330-98e7-370bae0e6df3" name="Default Changelist" comment="" />
+    <list default="true" id="fda580cc-a721-4330-98e7-370bae0e6df3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/home/LimitTime.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/home/LimitTimeList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/broadcast/ReceiverAppLock.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/broadcast/ReceiverAppLock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/services/ServiceApplock.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/services/ServiceApplock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/services/ServiceApplockJobIntent.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/services/ServiceApplockJobIntent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/applimits/AddLimitActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/applimits/AddLimitActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/applimits/AppInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/applimits/AppInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/applimits/AppLimitsDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/applimits/AppLimitsDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/studytime/AddStudyTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/studytime/AddStudyTime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/studytime/AlarmManagerUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/studytime/AlarmManagerUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/home/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/home/HomeFragment.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,6 +78,7 @@
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-05-02T11:29:24.444Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/studytime" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -220,14 +236,14 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="175" y="181" key="#PSD/0.25.1440.875@0.25.1440.875" timestamp="1614839498719" />
-    <state x="478" y="205" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1619937989115">
+    <state x="478" y="205" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1620485708892">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="478" y="205" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.25.1440.875@0.25.1440.875" timestamp="1619937989115" />
-    <state x="914" y="198" key="#com.intellij.ide.util.MemberChooser" timestamp="1619695416205">
+    <state x="478" y="205" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.25.1440.875@0.25.1440.875" timestamp="1620485708892" />
+    <state x="914" y="198" key="#com.intellij.ide.util.MemberChooser" timestamp="1620485823624">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="914" y="198" key="#com.intellij.ide.util.MemberChooser/0.25.1440.875@0.25.1440.875" timestamp="1619695416205" />
+    <state x="914" y="198" key="#com.intellij.ide.util.MemberChooser/0.25.1440.875@0.25.1440.875" timestamp="1620485823624" />
     <state x="448" y="308" width="752" height="262" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1613383029141">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
@@ -260,26 +276,30 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="578" y="208" key="FileChooserDialogImpl/0.25.1440.875@0.25.1440.875" timestamp="1614042457688" />
-    <state x="960" y="363" key="Github.ShareDialog" timestamp="1618325847857">
+    <state x="507" y="352" key="Github.ShareDialog" timestamp="1620293357494">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="960" y="363" key="Github.ShareDialog/0.25.1440.875@0.25.1440.875" timestamp="1618325847857" />
-    <state width="1202" height="212" key="GridCell.Tab.0.bottom" timestamp="1620107006839">
+    <state x="507" y="352" key="Github.ShareDialog/0.25.1440.875@0.25.1440.875" timestamp="1620293357494" />
+    <state x="369" y="149" key="Github.UntrackedFilesDialog" timestamp="1620293363447">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state width="1202" height="212" key="GridCell.Tab.0.bottom/0.25.1440.875@0.25.1440.875" timestamp="1620107006839" />
-    <state width="1202" height="212" key="GridCell.Tab.0.center" timestamp="1620107006838">
+    <state x="369" y="149" key="Github.UntrackedFilesDialog/0.25.1440.875@0.25.1440.875" timestamp="1620293363447" />
+    <state width="1202" height="212" key="GridCell.Tab.0.bottom" timestamp="1620550550523">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state width="1202" height="212" key="GridCell.Tab.0.center/0.25.1440.875@0.25.1440.875" timestamp="1620107006838" />
-    <state width="1202" height="212" key="GridCell.Tab.0.left" timestamp="1620107006838">
+    <state width="1202" height="212" key="GridCell.Tab.0.bottom/0.25.1440.875@0.25.1440.875" timestamp="1620550550523" />
+    <state width="1202" height="212" key="GridCell.Tab.0.center" timestamp="1620550550517">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state width="1202" height="212" key="GridCell.Tab.0.left/0.25.1440.875@0.25.1440.875" timestamp="1620107006838" />
-    <state width="1202" height="212" key="GridCell.Tab.0.right" timestamp="1620107006838">
+    <state width="1202" height="212" key="GridCell.Tab.0.center/0.25.1440.875@0.25.1440.875" timestamp="1620550550517" />
+    <state width="1202" height="212" key="GridCell.Tab.0.left" timestamp="1620550550504">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state width="1202" height="212" key="GridCell.Tab.0.right/0.25.1440.875@0.25.1440.875" timestamp="1620107006838" />
+    <state width="1202" height="212" key="GridCell.Tab.0.left/0.25.1440.875@0.25.1440.875" timestamp="1620550550504" />
+    <state width="1202" height="212" key="GridCell.Tab.0.right" timestamp="1620550550521">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state width="1202" height="212" key="GridCell.Tab.0.right/0.25.1440.875@0.25.1440.875" timestamp="1620550550521" />
     <state x="443" y="93" key="SettingsEditor" timestamp="1618325618780">
       <screen x="0" y="25" width="1440" height="875" />
     </state>

@@ -26,6 +26,12 @@ public class AppInfo implements Serializable {
         this.drawable = drawable;
     }
 
+    public AppInfo(String packageName, int hours, int mins) {
+        this.packageName = packageName;
+        this.hours = hours;
+        this.mins = mins;
+    }
+
     public AppInfo(String appName, String packageName, Drawable drawable, int hours, int mins, boolean alwaysAllowed){
         //this.appid = appid;
         this.appName = appName;

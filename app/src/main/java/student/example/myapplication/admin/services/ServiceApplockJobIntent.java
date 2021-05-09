@@ -41,7 +41,6 @@ public class ServiceApplockJobIntent extends JobIntentService {
                 try {
                     Intent intent = new Intent(this, ReceiverAppLock.class);
                     sendBroadcast(intent);
-                    //Log.e("wait time out:", (endTime - System.currentTimeMillis())+"");
                     wait(endTime - System.currentTimeMillis());
                 } catch (InterruptedException e) {
                     e.printStackTrace();

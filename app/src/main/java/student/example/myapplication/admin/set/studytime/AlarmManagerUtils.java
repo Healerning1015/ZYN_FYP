@@ -131,6 +131,12 @@ public class AlarmManagerUtils {
             } else {
                 breakTime = 5 + (double)extraTime / breakCount;
             }
+
+            //尽量调整休息时间和学习时间的比例
+            while(breakTime>=5+studyCount){
+                breakTime -= studyCount;
+                studyTime += breakCount;
+            }
         } else {
             studyTime = studyLong;
             studyCount = 1;
@@ -186,9 +192,14 @@ public class AlarmManagerUtils {
             int diffDay = cal.get(Calendar.DAY_OF_YEAR) - pre.get(Calendar.DAY_OF_YEAR);
             int diffHour = cal.get(Calendar.HOUR_OF_DAY) - pre.get(Calendar.HOUR_OF_DAY);
             int diffMin = cal.get(Calendar.MINUTE) - pre.get(Calendar.MINUTE);
+            int diffSec = cal.get(Calendar.SECOND) - pre.get(Calendar.SECOND);
             if (diffDay == 0) {
                 if (diffHour == 0) {
-                    if (diffMin >= 0) {
+                    if (diffMin == 0) {
+                        if (diffSec >= 0) {
+                            return true;
+                        }
+                    } else if (diffMin > 0) {
                         return true;
                     }
                 } else if (diffHour > 0) {
