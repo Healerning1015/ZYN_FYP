@@ -277,17 +277,17 @@ public class PatternLockPage extends AppCompatActivity {
     //这里貌似会出现bug
     private void initIconApp() {
         if(getIntent().getStringExtra("broadcast_receiver") != null){
+            Log.e("PatternLockPage", "Go Here");
             ImageView icon = findViewById(R.id.app_icon);
-            //String current_app = new Utils(this).getLastApp();
+            String current_app = new Utils(this).getLastApp();
             ApplicationInfo applicationInfo = null;
             try {
-                applicationInfo = getPackageManager().getApplicationInfo(new Utils(this).getLastApp(),0);
+                Log.e("current_app", current_app);
+                applicationInfo = getPackageManager().getApplicationInfo(current_app,0);
                 icon.setImageDrawable(applicationInfo.loadIcon(getPackageManager()));
             } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
             }
-
-
         }
     }
 

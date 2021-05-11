@@ -65,7 +65,7 @@ public class AppTimer extends BroadcastReceiver {
                 @Override
                 public void onFinish() {
                     dailyLimitTime.setLimitTimeInMS(pkgName, 0);
-                    utils.clearLastApp();
+                    //utils.clearLastApp();
                     utils.setTimerState(false);
 
                     showLock(context);
