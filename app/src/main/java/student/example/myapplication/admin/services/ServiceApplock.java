@@ -8,6 +8,8 @@ import androidx.annotation.Nullable;
 
 import student.example.myapplication.admin.broadcast.ReceiverAppLock;
 
+import static java.lang.Thread.sleep;
+
 public class ServiceApplock extends IntentService {
 
     public ServiceApplock(){
@@ -21,7 +23,7 @@ public class ServiceApplock extends IntentService {
                 try {
                     Intent intent = new Intent(this, ReceiverAppLock.class);
                     sendBroadcast(intent);
-                    wait(endTime - System.currentTimeMillis());
+                    sleep(endTime - System.currentTimeMillis());
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

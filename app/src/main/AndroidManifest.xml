@@ -64,6 +64,10 @@
             android:exported="true"
             android:enabled="true"/>
 
+        <receiver android:name=".admin.broadcast.AppTimer"
+            android:exported="true"
+            android:enabled="true"/>
+
         <receiver android:name=".admin.broadcast.RestartServiceWhenStoped"
             android:enabled="true"
             android:exported="true">
@@ -77,6 +81,10 @@
             android:enabled="true"/>
 
         <service android:name=".admin.services.ServiceApplockJobIntent"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+
+        <service android:name=".admin.services.ServiceWriteLimitTime"
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE"/>
 

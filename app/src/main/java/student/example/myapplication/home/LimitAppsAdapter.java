@@ -10,13 +10,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import student.example.myapplication.R;
 import student.example.myapplication.admin.set.applimits.AppInfo;
+import student.example.myapplication.admin.set.applimits.DailyLimitTime;
 
-public class LimitAppsAdapter extends BaseAdapter {
+ public class LimitAppsAdapter extends BaseAdapter {
     private Context mContext;
     private LimitAppsList limitAppsList;
+    private DailyLimitTime dailyLimitTime;
     //private List<AppInfo> list;
 
     public LimitAppsAdapter(Context context, LimitAppsList limitAppsList){
@@ -37,6 +40,7 @@ public class LimitAppsAdapter extends BaseAdapter {
     }
 
     public View getView(int position, View convertView, ViewGroup parent){
+        dailyLimitTime = new DailyLimitTime(mContext);
         final LayoutInflater layoutInflater = LayoutInflater.from(mContext);
         convertView = layoutInflater.inflate(R.layout.limit_app_list_item, null);
 
@@ -48,8 +52,20 @@ public class LimitAppsAdapter extends BaseAdapter {
 
         app_icon.setImageDrawable(appInfo.getDrawable());
         app_name.setText(appInfo.getAppName());
-        limit_time.setText(appInfo.getHours() + "h " + appInfo.getMins() + "min");
+        long limitTime = dailyLimitTime.getLimitTimeInMS(appInfo.getPackageName());
+        limit_time.setText(hmsTimeFormatter(limitTime));
 
         return convertView;
     }
+
+     private String hmsTimeFormatter(long milliSeconds) {
+
+         String hms = String.format("%02d:%02d:%02d",
+                 TimeUnit.MILLISECONDS.toHours(milliSeconds),
+                 TimeUnit.MILLISECONDS.toMinutes(milliSeconds) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(milliSeconds)),
+                 TimeUnit.MILLISECONDS.toSeconds(milliSeconds) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(milliSeconds)));
+
+         return hms;
+
+     }
 }

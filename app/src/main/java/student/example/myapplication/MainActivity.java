@@ -2,11 +2,14 @@ package student.example.myapplication;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -17,6 +20,9 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import student.example.myapplication.admin.services.BackgroundManager;
 
@@ -29,6 +35,7 @@ public class MainActivity extends AppCompatActivity{
     private final static String TAG="MainActivity";
     private View mLayout;
     private static final int PERMISSION_REQUEST_SYSTEM_ALERT_WINDOW = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,41 +84,4 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
-
-    /*
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        String result = data.getExtras().getString("result");//得到新Activity 关闭后返回的数据
-        Log.i(TAG, result);
-    }
-
-
-    private void requestPermission() {
-        // Permission has not been granted and must be requested.
-        if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                Manifest.permission.PACKAGE_USAGE_STATS)) {
-            // Provide an additional rationale to the user if the permission was not granted
-            // and the user would benefit from additional context for the use of the permission.
-            // Display a SnackBar with cda button to request the missing permission.
-            Snackbar.make(mLayout, R.string.package_usage_stats_required,
-                    Snackbar.LENGTH_INDEFINITE).setAction(R.string.ok, new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    // Request the permission
-                    ActivityCompat.requestPermissions(MainActivity.this,
-                            new String[]{Manifest.permission.PACKAGE_USAGE_STATS},
-                            PACKAGE_USAGE_STATS);
-                }
-            }).show();
-
-        } else {
-            Snackbar.make(mLayout, R.string.package_usage_stats_unavailable, Snackbar.LENGTH_SHORT).show();
-            // Request the permission. The result will be received in onRequestPermissionResult().
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.PACKAGE_USAGE_STATS}, PACKAGE_USAGE_STATS);
-        }
-    }
-
-     */
 }

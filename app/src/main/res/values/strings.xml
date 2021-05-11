@@ -155,7 +155,6 @@
 
     <string name="action_bar_title_1">Use Time Statistic</string>
     <string name="action_bar_title_2">Use Count Statistic</string>
-    <string name="action_bar_title_3">Activity Information Statistic</string>
 
     <string name="action_bar_title_permission">Permission</string>
     <string name="action_bar_title_show_all">Show All</string>

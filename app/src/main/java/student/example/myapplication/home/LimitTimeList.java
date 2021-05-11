@@ -26,15 +26,4 @@ public class LimitTimeList {
     public void clear() {
         limitTimeList.clear();
     }
-
-    private String hmsTimeFormatter(long milliSeconds) {
-
-        String hms = String.format("%02d:%02d:%02d",
-                TimeUnit.MILLISECONDS.toHours(milliSeconds),
-                TimeUnit.MILLISECONDS.toMinutes(milliSeconds) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(milliSeconds)),
-                TimeUnit.MILLISECONDS.toSeconds(milliSeconds) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(milliSeconds)));
-
-        return hms;
-
-    }
 }

@@ -22,6 +22,7 @@ import student.example.myapplication.home.LimitAppsList;
 public class AddLimitActivity extends AppCompatActivity {
 
     private Utils utils;
+    private DailyLimitTime dailyLimitTime;
     private AppLimitsDB appLimitsDB;
     private LimitAppsList limitAppsList = new LimitAppsList();
     private boolean flag = true;
@@ -35,6 +36,7 @@ public class AddLimitActivity extends AppCompatActivity {
         setContentView(R.layout.app_limits_dialog);
 
         utils = new Utils(getApplicationContext());
+        dailyLimitTime = new DailyLimitTime(getApplicationContext());
 
         appLimitsDB = new AppLimitsDB(this);
         limitAppsList = appLimitsDB.getAllLimitApps(limitAppsList);
@@ -112,6 +114,9 @@ public class AddLimitActivity extends AppCompatActivity {
                     if(edit == false){
                         appLimitsDB.addLimit(appInfo.getAppName(), appInfo.getPackageName(), byteLogo, appInfo.getHours(), appInfo.getMins(), appInfo.getAlwaysAllowed());
                         utils.lock(appInfo.getPackageName());
+                        long timeInMS = (long)(appInfo.getHours() * 60 * 60000 + appInfo.getMins() * 60000);
+                        dailyLimitTime.setLimitTimeInMS(appInfo.getPackageName(), timeInMS);
+
                         i.putExtra("add_limit_activity", "add_ok");
                         setResult(RESULT_OK, i);
                         finish();
@@ -127,6 +132,7 @@ public class AddLimitActivity extends AppCompatActivity {
                 } else if(flag == false && edit == true){
                     appLimitsDB.deleteLimit(editAppInfo);
                     utils.unlock(appInfo.getPackageName());
+                    dailyLimitTime.deleteLimitTimeInMS(appInfo.getPackageName());
                     i.putExtra("add_limit_activity", "delete_ok");
                     setResult(RESULT_OK, i);
                     finish();

@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.os.CountDownTimer;
 import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
@@ -22,11 +23,23 @@ import static android.app.AppOpsManager.MODE_ALLOWED;
 
 public class Utils {
     private String EXTRA_LAST_APP = "EXTRA_LAST_APP";
+    private String TIMER_IS_RUNNING = "TIMER_IS_RUNNING";
     private Context context;
 
     public Utils(Context context){
         this.context = context;
         Paper.init(context);
+    }
+
+    public boolean isTimerRunning(){
+        if(Paper.book().read(TIMER_IS_RUNNING) == null){
+            Paper.book().write(TIMER_IS_RUNNING, false);
+        }
+        return Paper.book().read(TIMER_IS_RUNNING);
+    }
+
+    public void setTimerState(boolean isRunning){
+        Paper.book().write(TIMER_IS_RUNNING, isRunning);
     }
 
     public boolean isLock(String packageName){
@@ -93,7 +106,7 @@ public class Utils {
             }
         }else{
             long endTime = System.currentTimeMillis();
-            long beginTime = endTime - 10000;
+            long beginTime = endTime - 1000*60*60*24;
 
             String result = "";
             UsageEvents.Event event = new UsageEvents.Event();
@@ -110,6 +123,6 @@ public class Utils {
                 return result;
             }
         }
-        return "";
+        return "null";
     }
 }

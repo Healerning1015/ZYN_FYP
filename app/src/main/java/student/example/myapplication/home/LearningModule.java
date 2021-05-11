@@ -1,9 +1,6 @@
 package student.example.myapplication.home;
 
 import android.app.AlarmManager;
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.admin.DevicePolicyManager;
 import android.app.admin.SystemUpdatePolicy;
@@ -14,7 +11,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.BatteryManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -23,7 +19,6 @@ import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -35,10 +30,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
 
 import java.util.concurrent.TimeUnit;
 
@@ -419,7 +412,6 @@ public class LearningModule extends AppCompatActivity implements SharedPreferenc
         }
 
         imageViewTomato[(switchCount-breakCount)/2].setImageResource(R.mipmap.icon_tomato_gray);
-        //tomatoBar.removeView(imageViewTomato[(switchCount-breakCount)/2]);
     }
 
     /**
@@ -484,7 +476,6 @@ public class LearningModule extends AppCompatActivity implements SharedPreferenc
                     reset();
                     startActivity(new Intent(LearningModule.this, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK));
                 }
-                //Toast.makeText(LearningModule.this, "你点击了是的", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             }
         });
@@ -492,7 +483,6 @@ public class LearningModule extends AppCompatActivity implements SharedPreferenc
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                //Toast.makeText(LearningModule.this, "你点击了不是", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             }
         });
@@ -515,6 +505,8 @@ public class LearningModule extends AppCompatActivity implements SharedPreferenc
         //显示对话框
         dialog.show();
     }
+
+
 
 
     //Kiosk Mode

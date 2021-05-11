@@ -8,6 +8,8 @@ import androidx.core.app.JobIntentService;
 
 import student.example.myapplication.admin.broadcast.ReceiverAppLock;
 
+import static java.lang.Thread.sleep;
+
 public class ServiceApplockJobIntent extends JobIntentService {
     private static final int JOB_ID = 15462;
     public static void enqueueWork(Context context, Intent work){
@@ -41,7 +43,7 @@ public class ServiceApplockJobIntent extends JobIntentService {
                 try {
                     Intent intent = new Intent(this, ReceiverAppLock.class);
                     sendBroadcast(intent);
-                    wait(endTime - System.currentTimeMillis());
+                    sleep(endTime - System.currentTimeMillis());
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

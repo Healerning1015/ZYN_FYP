@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import student.example.myapplication.R;
 import student.example.myapplication.usage.adapter.UseTimeDetailAdapter;
-import student.example.myapplication.usage.adapter.UseTimeEveryDetailAdapter;
 import student.example.myapplication.usage.domain.OneTimeDetails;
 import student.example.myapplication.usage.domain.UseTimeDataManager;
 
@@ -23,8 +22,6 @@ public class UseTimeDetailActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
 
     private UseTimeDetailAdapter mUseTimeDetailAdapter;
-
-    private UseTimeEveryDetailAdapter mUseTimeEveryDetailAdapter;
 
     private UseTimeDataManager mUseTimeDataManager;
 
@@ -56,14 +53,11 @@ public class UseTimeDetailActivity extends AppCompatActivity {
             } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
             }
-        }else if("details".equals(type)){
-            //显示为activity统计信息
-            showAppOpenDetails(intent.getStringExtra("pkg"));
-            getSupportActionBar().setTitle(R.string.action_bar_title_3);
         }else {
             Log.i(UseTimeDataManager.TAG,"   未知类型    ");
         }
     }
+
 
     private void showAppOpenTimes(String pkg){
         mUseTimeDetailAdapter = new UseTimeDetailAdapter(mUseTimeDataManager.getPkgOneTimeDetailList(pkg));
@@ -71,7 +65,6 @@ public class UseTimeDetailActivity extends AppCompatActivity {
             @Override
             public void onItemClick(View view, OneTimeDetails details) {
                 mUseTimeDataManager.setmOneTimeDetails(details);
-                showDetail(details.getPkgName());
             }
         });
         mRecyclerView.setAdapter(mUseTimeDetailAdapter);
@@ -79,20 +72,4 @@ public class UseTimeDetailActivity extends AppCompatActivity {
 
     }
 
-    private void showAppOpenDetails(String pkg){
-        if(!pkg.equals(mUseTimeDataManager.getmOneTimeDetails().getPkgName())){
-            Log.i(UseTimeDataManager.TAG,"  showAppOpenDetails()    包名不一致 ");
-        }
-        mUseTimeEveryDetailAdapter = new UseTimeEveryDetailAdapter(mUseTimeDataManager.getmOneTimeDetails().getOneTimeDetailEventList());
-        mRecyclerView.setAdapter(mUseTimeEveryDetailAdapter);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-    }
-
-    private void showDetail(String pkg){
-        Intent i = new Intent();
-        i.setClassName(this,"student.example.myapplication.usage.ui.UseTimeDetailActivity");
-        i.putExtra("type","details");
-        i.putExtra("pkg",pkg);
-        startActivity(i);
-    }
 }

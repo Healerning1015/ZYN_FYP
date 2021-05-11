@@ -11,7 +11,7 @@ import student.example.myapplication.usage.utils.DateTransUtils;
 
 public class OneTimeDetails {
     private String pkgName;
-    private long                          useTime;
+    private long useTime;
     private ArrayList<UsageEvents.Event> OneTimeDetailEventList;
 
     public OneTimeDetails(String pkg, long useTime, ArrayList<UsageEvents.Event> oneTimeDetailList) {
