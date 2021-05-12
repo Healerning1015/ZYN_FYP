@@ -69,12 +69,10 @@ public class WelcomePage extends AppCompatActivity {
         todayTime = df.format(new Date());// 获取当前的日期
 
         if (lastTime.equals(todayTime)) { //如果两个时间段相等
-            Toast.makeText(this, "不是当日首次进入", Toast.LENGTH_SHORT).show();
-            //Intent intent = new Intent(this, ServiceWriteLimitTime.class);
-            //ServiceWriteLimitTime.enqueueWork(this, intent);
+            //Toast.makeText(this, "不是当日首次进入", Toast.LENGTH_SHORT).show();
             Log.e("Time", lastTime);
         } else {
-            Toast.makeText(this, "当日首次进入", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "当日首次进入", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, ServiceWriteLimitTime.class);
             ServiceWriteLimitTime.enqueueWork(this, intent);
 

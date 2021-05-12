@@ -8,6 +8,9 @@
 
     <string name="admin_app_limits">App Limits</string>
     <string name="about_app_limits">introduction</string>
+    <string name="daily_limit_app">Daily Limit App</string>
+    <string name="remaining_time">Remaining Time </string>
+    <string name="daily_limit_time">Daily Limit Time </string>
 
     <string-array name="hours">
         <item>0</item>
@@ -142,6 +145,8 @@
 
     <string-array name="sticker_color">
         <item>#769fcd</item>
+        <item>#b9d7ea</item>
+        <item>#d6e6f2</item>
     </string-array>
 
 
@@ -162,4 +167,7 @@
     <string name="activity_name">Activity Name</string>
     <string name="activity_total_use_time">Activity Total Use Time</string>
 
+
+    <!--setting-->
+    <string name="permission_setting">Permission Setting</string>
 </resources>

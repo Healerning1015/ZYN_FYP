@@ -5,72 +5,53 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!--<TextView
-        android:id="@+id/introduction"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/about_app_limits"/>-->
-    <!--<ListView
-        android:id="@+id/applimits_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:divider="@color/blue_2"
-        android:dividerHeight="1dp" >
-    </ListView>-->
-
+    <!--检查并设置权限-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@android:color/white"
+        android:padding="10dp"
         android:id="@+id/layout_permission">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="5dp"
             android:orientation="horizontal">
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:padding="5dp"
-                android:src="@drawable/ic_baseline_sentiment_dissatisfied_24"/>
+
 
             <LinearLayout
+                android:layout_weight="7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="5dp"
-                android:padding="5dp">
+                android:orientation="vertical">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
-                    android:textSize="20sp"
-                    android:text="Set Permission"/>
+                    android:textColor="@color/blue_4"
+                    android:textSize="18sp"
+                    android:text="Allow usage access"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="15sp"
                     android:text="Access to action usage access settings to enable app limits"/>
-
             </LinearLayout>
-        </LinearLayout>
+            <ImageView
+                android:id="@+id/img_usage_access"
+                android:layout_weight="1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="5dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_round_arrow_forward_24"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:text="Enable"
-            android:textColor="@color/blue_4"
-            android:background="@drawable/btn_on_click"
-            android:drawableRight="@drawable/ic_baseline_arrow_right_24"
-            android:onClick="setPermission"/>
+        </LinearLayout>
     </LinearLayout>
 
+    <!--设置手势锁-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -86,10 +67,43 @@
             android:textSize="20sp"
             android:gravity="center"
             android:textColor="@color/blue_4"/>
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:id="@+id/app_limits_hint">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Step 1  ->  Set the permission of usage access"
+            android:textColor="@color/blue_4"
+            android:textSize="15dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Step 2  ->  Set the pattern lock"
+            android:textColor="@color/blue_4"
+            android:textSize="15dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Step 3  ->  Add some app limits"
+            android:textColor="@color/blue_4"
+            android:textSize="15dp"
+            android:gravity="center"/>
 
     </LinearLayout>
 
+    <!--app列表-->
     <ListView
         android:id="@+id/appinfo_list"
         android:layout_width="match_parent"

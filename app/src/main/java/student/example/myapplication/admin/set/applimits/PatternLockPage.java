@@ -46,14 +46,6 @@ public class PatternLockPage extends AppCompatActivity {
 
     PatternPassword utilsPassword;
     String userPassword;
-    /*
-    boolean isAdmin;
-
-    private ComponentName mAdminComponentName;
-    private DevicePolicyManager mDevicePolicyManager;
-    final static String LOCK_ACTIVITY_KEY = "student.example.myapplication.admin.set.applimits.PatternLockPage";
-
-     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,125 +61,9 @@ public class PatternLockPage extends AppCompatActivity {
 
         initPatternListener();
 
-        /*
-        mAdminComponentName = MyDeviceAdminReceiver.getComponentName(this);
-        mDevicePolicyManager = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
-
-        mDevicePolicyManager.removeActiveAdmin(mAdminComponentName);
-
-        isAdmin = isAdmin();
-        if(isAdmin){
-            Toast.makeText(this, R.string.device_owner, Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, R.string.not_device_owner, Toast.LENGTH_SHORT).show();
-        }
-        //setKioskPolicies(true, isAdmin);
-
-         */
         registerReceiver();
 
     }
-
-    //Kiosk Mode
-    /*
-    private boolean isAdmin() {
-        return mDevicePolicyManager.isDeviceOwnerApp("student.example.applock");
-    }
-
-    private void setKioskPolicies(boolean enable, boolean isAdmin) {
-        if (isAdmin) {
-            setRestrictions(enable);
-            enableStayOnWhilePluggedIn(enable);
-            setUpdatePolicy(enable);
-            setAsHomeApp(enable);
-            setKeyGuardEnabled(enable);
-        }
-        setLockTask(enable, isAdmin);
-        setImmersiveMode(enable);
-    }
-
-    private void setImmersiveMode(boolean enable) {
-        if (enable) {
-            View decorView = getWindow().getDecorView();
-            decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                    | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                    | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                    | View.SYSTEM_UI_FLAG_FULLSCREEN
-                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-        } else {
-            View decorView = getWindow().getDecorView();
-            decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                    | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-        }
-    }
-
-    private void setKeyGuardEnabled(boolean enable) {
-        mDevicePolicyManager.setKeyguardDisabled(mAdminComponentName, !enable);
-    }
-
-    private void setAsHomeApp(boolean enable) {
-        if (enable) {
-            IntentFilter intentFilter = new IntentFilter(Intent.ACTION_MAIN);
-            intentFilter.addCategory(Intent.CATEGORY_HOME);
-            intentFilter.addCategory(Intent.CATEGORY_DEFAULT);
-            mDevicePolicyManager.addPersistentPreferredActivity(
-                    mAdminComponentName, intentFilter, new ComponentName("student.example.applock", "student.example.applock.PatternLockAct"));
-        } else {
-            mDevicePolicyManager.clearPackagePersistentPreferredActivities(
-                    mAdminComponentName, "student.example.applock");
-        }
-    }
-
-    private void setUpdatePolicy(boolean enable) {
-        if (enable) {
-            mDevicePolicyManager.setSystemUpdatePolicy(mAdminComponentName,
-                    SystemUpdatePolicy.createWindowedInstallPolicy(60, 120));
-        } else {
-            mDevicePolicyManager.setSystemUpdatePolicy(mAdminComponentName, null);
-        }
-    }
-
-    private void setLockTask(boolean start, boolean isAdmin) {
-        if (isAdmin) {
-            //mDevicePolicyManager.setLockTaskPackages(mAdminComponentName, if (start) arrayOf(packageName) else arrayOf());
-        }
-        if (start) {
-            startLockTask();
-        } else {
-            stopLockTask();
-        }
-    }
-
-    private void enableStayOnWhilePluggedIn(boolean active) {
-        if (active) {
-            mDevicePolicyManager.setGlobalSetting(mAdminComponentName,
-                    Settings.Global.STAY_ON_WHILE_PLUGGED_IN,
-                    (BatteryManager.BATTERY_PLUGGED_AC | BatteryManager.BATTERY_PLUGGED_USB | BatteryManager.BATTERY_PLUGGED_WIRELESS)+"");
-        } else {
-            mDevicePolicyManager.setGlobalSetting(mAdminComponentName, Settings.Global.STAY_ON_WHILE_PLUGGED_IN, "0");
-        }
-    }
-
-    private void setRestrictions(boolean disallow) {
-        setUserRestriction(UserManager.DISALLOW_SAFE_BOOT, disallow);
-        setUserRestriction(UserManager.DISALLOW_FACTORY_RESET, disallow);
-        setUserRestriction(UserManager.DISALLOW_ADD_USER, disallow);
-        setUserRestriction(UserManager.DISALLOW_MOUNT_PHYSICAL_MEDIA, disallow);
-        setUserRestriction(UserManager.DISALLOW_ADJUST_VOLUME, disallow);
-        mDevicePolicyManager.setStatusBarDisabled(mAdminComponentName, disallow);
-    }
-
-    private void setUserRestriction(String restriction, boolean disallow) {
-        if (disallow) {
-            mDevicePolicyManager.addUserRestriction(mAdminComponentName, restriction);
-        } else {
-            mDevicePolicyManager.clearUserRestriction(mAdminComponentName, restriction);
-        }
-    }
-
-     */
 
     private void initPatternListener() {
         final PatternLockView patternLockView = findViewById(R.id.pattern_view);

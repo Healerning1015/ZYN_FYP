@@ -5,6 +5,7 @@ import android.content.pm.ApplicationInfo;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.PixelFormat;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -40,7 +41,10 @@ public class AppLimits extends AppCompatActivity {
     AppInfosAdapter infosAdapter = null;
     LinearLayout layout_permission;
     LinearLayout layout_set_lock;
+    LinearLayout layout_app_limits_hint;
     public static final int REQUEST_DIALOG = 1;
+
+    PatternPassword utilsPassword;
 
 
     @Override
@@ -58,7 +62,19 @@ public class AppLimits extends AppCompatActivity {
         }
 
         layout_permission = findViewById(R.id.layout_permission);
+        layout_permission.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
+                intent.setData(Uri.parse("package:" + getPackageName()));
+                startActivity(intent);
+            }
+        });
+
         layout_set_lock = findViewById(R.id.layout_set_lock);
+        layout_app_limits_hint = findViewById(R.id.app_limits_hint);
+
+        utilsPassword = new PatternPassword(this);
 
         appInfoListView = (ListView) this.findViewById(R.id.appinfo_list);
         appInfos = getAppInfos();
@@ -141,10 +157,6 @@ public class AppLimits extends AppCompatActivity {
         }
     }
 
-    public void setPermission(View view) {
-        startActivity(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS));
-    }
-
     public void setLock(View view) {
         Intent i;
         if(new PatternPassword(this).getPassword() == null){
@@ -203,11 +215,17 @@ public class AppLimits extends AppCompatActivity {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
             if(Utils.checkPermission(this)){
                 layout_permission.setVisibility(View.GONE);
-                appInfoListView.setVisibility(View.VISIBLE);
+                layout_app_limits_hint.setVisibility(View.GONE);
+                if(utilsPassword.getPassword() != null){
+                    appInfoListView.setVisibility(View.VISIBLE);
+                }
             } else{
                 layout_permission.setVisibility(View.VISIBLE);
+                layout_app_limits_hint.setVisibility(View.VISIBLE);
                 appInfoListView.setVisibility(View.GONE);
             }
+
+
         }
         super.onResume();
     }

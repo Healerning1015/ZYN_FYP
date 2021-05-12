@@ -2,7 +2,10 @@ package student.example.myapplication.usage;
 
 
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +24,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import student.example.myapplication.R;
+import student.example.myapplication.admin.set.applimits.Utils;
 import student.example.myapplication.usage.adapter.SelectDateAdapter;
 import student.example.myapplication.usage.adapter.UseTimeAdapter;
 import student.example.myapplication.usage.domain.UseTimeDataManager;
@@ -42,6 +46,8 @@ public class UsageFragment extends Fragment {
     private ArrayList<String> mDateList;
     private UseTimeDataManager mUseTimeDataManager;
 
+    private LinearLayout layout_permission;
+
     private int dayNum = 0;
     private boolean isShowing = false;
 
@@ -56,6 +62,15 @@ public class UsageFragment extends Fragment {
         initData(dayNum);
         initView(root);
 
+        layout_permission.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
+                intent.setData(Uri.parse("package:" + getActivity().getPackageName()));
+                startActivity(intent);
+            }
+        });
+
         return root;
     }
 
@@ -63,6 +78,7 @@ public class UsageFragment extends Fragment {
         mLlSelectDate = (LinearLayout) root.findViewById(R.id.ll_select_date);
         mBtnDate = (ToggleButton) root.findViewById(R.id.tv_date);
         mRecyclerView = (RecyclerView) root.findViewById(R.id.rv_show_statistics);
+        layout_permission = root.findViewById(R.id.layout_permission);
         showView(dayNum);
     }
 
@@ -129,5 +145,20 @@ public class UsageFragment extends Fragment {
 
         mPopupWindow.showAsDropDown(mBtnDate);
         isShowing = true;
+    }
+
+    @Override
+    public void onResume() {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            if(Utils.checkPermission(getActivity())){
+                layout_permission.setVisibility(View.GONE);
+                mRecyclerView.setVisibility(View.VISIBLE);
+                initData(dayNum);
+            } else{
+                layout_permission.setVisibility(View.VISIBLE);
+                mRecyclerView.setVisibility(View.GONE);
+            }
+        }
+        super.onResume();
     }
 }

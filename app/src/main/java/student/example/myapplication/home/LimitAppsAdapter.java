@@ -16,7 +16,8 @@ import student.example.myapplication.R;
 import student.example.myapplication.admin.set.applimits.AppInfo;
 import student.example.myapplication.admin.set.applimits.DailyLimitTime;
 
- public class LimitAppsAdapter extends BaseAdapter {
+ public class
+ LimitAppsAdapter extends BaseAdapter {
     private Context mContext;
     private LimitAppsList limitAppsList;
     private DailyLimitTime dailyLimitTime;
@@ -60,7 +61,7 @@ import student.example.myapplication.admin.set.applimits.DailyLimitTime;
 
      private String hmsTimeFormatter(long milliSeconds) {
 
-         String hms = String.format("%02d:%02d:%02d",
+         String hms = String.format("%02dh%02dm%02ds",
                  TimeUnit.MILLISECONDS.toHours(milliSeconds),
                  TimeUnit.MILLISECONDS.toMinutes(milliSeconds) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(milliSeconds)),
                  TimeUnit.MILLISECONDS.toSeconds(milliSeconds) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(milliSeconds)));

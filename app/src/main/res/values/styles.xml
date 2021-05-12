@@ -7,6 +7,7 @@
         <item name="colorAccent">@color/blue_3</item>
     </style>
 
+    <style name="Theme.MyApplication.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
     <style name="dialog_activity_styles" parent="Theme.AppCompat.Dialog.Alert">
         <item name="android:windowFullscreen">true</item>

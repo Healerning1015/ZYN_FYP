@@ -13,9 +13,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fda580cc-a721-4330-98e7-370bae0e6df3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/navEditor.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/drawable_circle_small_blue.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/drawable_circle_small_gray.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_twotone_false_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_twotone_true_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/limit_app_dialog.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/broadcast/AppTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/broadcast/AppTimer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/WelcomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/WelcomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/applimits/AppLimits.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/applimits/AppLimits.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/applimits/PatternLockPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/applimits/PatternLockPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/home/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/home/HomeFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/home/LimitAppsAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/home/LimitAppsAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/profile/ProfileFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/profile/ProfileFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/usage/UsageFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/usage/UsageFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/drawable_circle_green.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/drawable_circle_blue.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/drawable_circle_red.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/drawable_circle_gray.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_arrow_right_24.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_round_arrow_forward_24.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/admin_set_app_limits.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/admin_set_app_limits.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/app_info_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/app_info_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_usage.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_usage.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/learning_page.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/learning_page.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/limit_app_list_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/limit_app_list_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,8 +70,8 @@
       <list>
         <option value="valueResourceFile" />
         <option value="resourceFile" />
-        <option value="layoutResourceFile" />
         <option value="Class" />
+        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
@@ -64,13 +89,13 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_3_XL_API_29" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-05-11T11:28:18.104Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-05-12T12:23:08.625Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/studytime" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
     <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -80,9 +105,8 @@
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="student.example.myapplication.admin.broadcast" />
-      <recent name="student.example.myapplication.admin.services" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="student.example.myapplication" />
@@ -101,8 +125,9 @@
       <recent name="student.example.myapplication.usage.ui" />
       <recent name="student.example.myapplication.usage" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="student.example.myapplication.admin.broadcast" />
+      <recent name="student.example.myapplication.admin.services" />
     </key>
   </component>
   <component name="RunManager">
@@ -224,7 +249,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620731646210</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="修改了一点小bug">
+      <created>1620735921288</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1620735921288</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -234,7 +266,8 @@
     <MESSAGE value="添加了学习模式页面，并在alarmManagement定时的时候进行判断是否已经是过去的时间" />
     <MESSAGE value="添加了应用倒计时上锁，但不使用时还不能暂停倒计时" />
     <MESSAGE value="每天第一次使用app的时候更新每日限制时间，可以倒计时，暂停倒计时，倒计时结束后显示手势锁，还未测试出没见过的致命bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="每天第一次使用app的时候更新每日限制时间，可以倒计时，暂停倒计时，倒计时结束后显示手势锁，还未测试出没见过的致命bug" />
+    <MESSAGE value="修改了一点小bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改了一点小bug" />
   </component>
   <component name="WindowStateProjectService">
     <state x="175" y="181" key="#PSD" timestamp="1614839498719">
@@ -245,10 +278,10 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="478" y="205" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.25.1440.875@0.25.1440.875" timestamp="1620701427638" />
-    <state x="914" y="198" key="#com.intellij.ide.util.MemberChooser" timestamp="1620701276115">
+    <state x="914" y="198" key="#com.intellij.ide.util.MemberChooser" timestamp="1620821823248">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="914" y="198" key="#com.intellij.ide.util.MemberChooser/0.25.1440.875@0.25.1440.875" timestamp="1620701276115" />
+    <state x="914" y="198" key="#com.intellij.ide.util.MemberChooser/0.25.1440.875@0.25.1440.875" timestamp="1620821823248" />
     <state x="448" y="308" width="752" height="262" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1613383029141">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
@@ -265,18 +298,18 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="222" y="125" width="1118" height="675" key="AVDManager/0.25.1440.875@0.25.1440.875" timestamp="1613409169982" />
-    <state x="584" y="166" key="AndroidCreateResourceFileDialog" timestamp="1617557355369">
+    <state x="584" y="166" key="AndroidCreateResourceFileDialog" timestamp="1620743745741">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="584" y="166" key="AndroidCreateResourceFileDialog/0.25.1440.875@0.25.1440.875" timestamp="1617557355369" />
+    <state x="584" y="166" key="AndroidCreateResourceFileDialog/0.25.1440.875@0.25.1440.875" timestamp="1620743745741" />
     <state x="604" y="240" key="AndroidCreateXmlResourceDialog" timestamp="1616329576773">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="604" y="240" key="AndroidCreateXmlResourceDialog/0.25.1440.875@0.25.1440.875" timestamp="1616329576773" />
-    <state x="0" y="27" key="CommitChangelistDialog2" timestamp="1620731645356">
+    <state x="0" y="27" key="CommitChangelistDialog2" timestamp="1620735921002">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="0" y="27" key="CommitChangelistDialog2/0.25.1440.875@0.25.1440.875" timestamp="1620731645356" />
+    <state x="0" y="27" key="CommitChangelistDialog2/0.25.1440.875@0.25.1440.875" timestamp="1620735921002" />
     <state x="578" y="208" key="FileChooserDialogImpl" timestamp="1614042457688">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
@@ -289,22 +322,22 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="369" y="149" key="Github.UntrackedFilesDialog/0.25.1440.875@0.25.1440.875" timestamp="1620293363447" />
-    <state width="1144" height="227" key="GridCell.Tab.0.bottom" timestamp="1620735647750">
+    <state width="1265" height="227" key="GridCell.Tab.0.bottom" timestamp="1620822316373">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state width="1144" height="227" key="GridCell.Tab.0.bottom/0.25.1440.875@0.25.1440.875" timestamp="1620735647750" />
-    <state width="1144" height="227" key="GridCell.Tab.0.center" timestamp="1620735647747">
+    <state width="1265" height="227" key="GridCell.Tab.0.bottom/0.25.1440.875@0.25.1440.875" timestamp="1620822316373" />
+    <state width="1265" height="227" key="GridCell.Tab.0.center" timestamp="1620822316372">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state width="1144" height="227" key="GridCell.Tab.0.center/0.25.1440.875@0.25.1440.875" timestamp="1620735647747" />
-    <state width="1144" height="227" key="GridCell.Tab.0.left" timestamp="1620735647744">
+    <state width="1265" height="227" key="GridCell.Tab.0.center/0.25.1440.875@0.25.1440.875" timestamp="1620822316372" />
+    <state width="1265" height="227" key="GridCell.Tab.0.left" timestamp="1620822316372">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state width="1144" height="227" key="GridCell.Tab.0.left/0.25.1440.875@0.25.1440.875" timestamp="1620735647744" />
-    <state width="1144" height="227" key="GridCell.Tab.0.right" timestamp="1620735647748">
+    <state width="1265" height="227" key="GridCell.Tab.0.left/0.25.1440.875@0.25.1440.875" timestamp="1620822316372" />
+    <state width="1265" height="227" key="GridCell.Tab.0.right" timestamp="1620822316372">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state width="1144" height="227" key="GridCell.Tab.0.right/0.25.1440.875@0.25.1440.875" timestamp="1620735647748" />
+    <state width="1265" height="227" key="GridCell.Tab.0.right/0.25.1440.875@0.25.1440.875" timestamp="1620822316372" />
     <state x="435" y="209" key="IDE.errors.dialog" timestamp="1620731803486">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
@@ -313,10 +346,10 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="443" y="93" key="SettingsEditor/0.25.1440.875@0.25.1440.875" timestamp="1618325618780" />
-    <state x="401" y="199" key="Vcs.Push.Dialog.v2" timestamp="1620731786734">
+    <state x="401" y="199" key="Vcs.Push.Dialog.v2" timestamp="1620735933186">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="401" y="199" key="Vcs.Push.Dialog.v2/0.25.1440.875@0.25.1440.875" timestamp="1620731786734" />
+    <state x="401" y="199" key="Vcs.Push.Dialog.v2/0.25.1440.875@0.25.1440.875" timestamp="1620735933186" />
     <state x="0" y="25" width="927" height="875" key="dock-window-1" timestamp="1619287843288">
       <screen x="0" y="25" width="1440" height="875" />
     </state>

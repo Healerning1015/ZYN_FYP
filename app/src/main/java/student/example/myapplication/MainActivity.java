@@ -73,15 +73,6 @@ public class MainActivity extends AppCompatActivity{
         }
 
          */
-
-
-        if (!Settings.canDrawOverlays(this)) {
-            //若未授权则请求权限
-            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
-            intent.setData(Uri.parse("package:" + getPackageName()));
-            startActivityForResult(intent, 0);
-        }
-
     }
 
 }
