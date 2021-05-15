@@ -10,14 +10,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
 import student.example.myapplication.R;
-import student.example.myapplication.admin.set.applimits.AdminModePassword;
 
 public class AdminFragment extends Fragment {
 
@@ -25,6 +23,9 @@ public class AdminFragment extends Fragment {
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     AdminModePassword adminModePassword;
+
+    private EditText editText;
+    private Button button;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -46,9 +47,9 @@ public class AdminFragment extends Fragment {
         adminModePassword = new AdminModePassword(getActivity());
         adminModePassword.setPassword("12345");
 
-        final EditText editText = view.findViewById(R.id.admin_pwd);
-        //final TextView textView = view.findViewById(R.id.textView);
-        final Button button = view.findViewById(R.id.enter);
+        editText = view.findViewById(R.id.admin_pwd);
+        button = view.findViewById(R.id.enter);
+
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if(editText.getText().toString().equals(adminModePassword.getPassword())){
@@ -70,5 +71,11 @@ public class AdminFragment extends Fragment {
 
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        editText.setText("");
     }
 }

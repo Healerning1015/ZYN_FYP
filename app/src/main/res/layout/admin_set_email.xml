@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:paddingBottom="5dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="0dp"
+        android:text="Email Address: "
+        android:textColor="@color/blue_4"
+        android:textSize="18sp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_email"
+        android:hint="Your Email Address"
+        android:layout_margin="10dp"
+        android:padding="12dp"
+        android:background="@drawable/bg_round"/>
+
+    <CheckBox
+        android:id="@+id/cb_send"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textColor="@color/blue_4"
+        android:text="Send feedback daily"
+        android:checked="true"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="Note: This email address is only used for feedback on mobile device usage."/>
+
+    <Button
+        android:id="@+id/bt_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/btn_normal"
+        android:text="Submit"
+        android:textColor="@color/blue_4" />
+
+</LinearLayout>

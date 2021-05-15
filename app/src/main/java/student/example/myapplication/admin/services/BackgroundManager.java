@@ -10,7 +10,7 @@ import android.os.Build;
 import student.example.myapplication.admin.broadcast.RestartServiceWhenStoped;
 
 public class BackgroundManager {
-    private static final int period = 1000; //15分钟
+    private static final int period = 2000; //2s
     private static final int ALARM_ID = 159874;
 
     private static BackgroundManager instance;

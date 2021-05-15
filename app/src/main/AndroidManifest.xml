@@ -15,6 +15,10 @@
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
 
     <application
         android:allowBackup="false"
@@ -44,6 +48,8 @@
         <activity android:name=".admin.set.curfewtime.CurfewTime" android:label="@string/admin_curfew_time"></activity>
         <activity android:name=".admin.set.studytime.StudyTime" android:label="@string/admin_study_time"></activity>
         <activity android:name=".admin.set.studytime.AddStudyTime" android:label="@string/add_time"></activity>
+        <activity android:name=".admin.set.SetEmail" android:label="@string/admin_set_email"></activity>
+        <activity android:name=".admin.set.ChangePassword" android:label="@string/admin_change_pwd"></activity>
 
         <activity android:name=".admin.set.applimits.PatternLockPage"></activity>
         <activity android:name=".admin.set.applimits.ResetPatternLock"></activity>
@@ -87,6 +93,15 @@
         <service android:name=".admin.services.ServiceWriteLimitTime"
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE"/>
+
+        <service android:name=".usage.ServiceSendEmail"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+
+        <receiver android:name=".usage.EmailReceiver"
+            android:enabled="true"
+            android:exported="true">
+        </receiver>
 
         <!--<receiver android:name=".home.NotificationPublisher">
             <intent-filter>

@@ -138,14 +138,15 @@
                     android:layout_marginRight="10dp"
                     android:visibility="gone"
                     android:text="Break Up the Time"/>
+
                 <Button
                     android:id="@+id/submit_btn"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/btn_normal"
-                    android:textColor="@color/blue_4"
+                    android:layout_height="35dp"
                     android:layout_weight="1"
-                    android:text="Save"/>
+                    android:background="@drawable/btn_normal"
+                    android:text="Save"
+                    android:textColor="@color/blue_4" />
 
             </LinearLayout>
         </LinearLayout>

@@ -2,10 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="10dp"
-    android:layout_marginBottom="10dp"
-    android:layout_marginLeft="20dp"
-    android:layout_marginRight="20dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
     android:orientation="vertical">
 
     <TableLayout
@@ -97,14 +97,72 @@
                 android:layout_span="3"/>
         </TableRow>
 
+        <TableRow
+            android:id="@+id/set_email"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="@string/admin_set_email" />
+            <TextView />
+
+            <ImageButton
+                android:id="@+id/go_to_set_email"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:rotation="180"
+                android:src="@drawable/svg_back" />
+        </TableRow>
+        <TableRow>
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/blue_2"
+                android:layout_span="3"/>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/change_pwd"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="@string/admin_change_pwd" />
+            <TextView />
+
+            <ImageButton
+                android:id="@+id/go_to_change_pwd"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:rotation="180"
+                android:src="@drawable/svg_back" />
+        </TableRow>
+        <TableRow>
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/blue_2"
+                android:layout_span="3"/>
+        </TableRow>
+
         <TableRow>
             <Button
-                android:id="@+id/save"
+                android:id="@+id/done"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_span="3"
                 android:layout_marginTop="20dp"
-                android:text="Save"/>
+                android:background="@drawable/btn_normal"
+                android:textColor="@color/blue_4"
+                android:text="Done"/>
         </TableRow>
     </TableLayout>
 </LinearLayout>

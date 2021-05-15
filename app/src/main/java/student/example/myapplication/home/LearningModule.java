@@ -37,8 +37,7 @@ import java.util.concurrent.TimeUnit;
 
 import student.example.myapplication.MainActivity;
 import student.example.myapplication.R;
-import student.example.myapplication.WelcomePage;
-import student.example.myapplication.admin.set.applimits.AdminModePassword;
+import student.example.myapplication.admin.AdminModePassword;
 
 public class LearningModule extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
     private long timeCountInMilliSeconds = 1 * 60000; //一分钟

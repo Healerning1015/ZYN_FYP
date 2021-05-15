@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +41,7 @@ public class UsageFragment extends Fragment {
     private PopupWindow mPopupWindow;
     private RecyclerView mRvSelectDate;
 
-    private RecyclerView       mRecyclerView;
+    private RecyclerView mRecyclerView;
     private UseTimeAdapter mUseTimeAdapter;
 
     private ArrayList<String> mDateList;
@@ -49,7 +50,6 @@ public class UsageFragment extends Fragment {
     private LinearLayout layout_permission;
 
     private int dayNum = 0;
-    private boolean isShowing = false;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -94,6 +94,7 @@ public class UsageFragment extends Fragment {
 
         mBtnDate.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                Log.e("onCheckedChanged", isChecked+"");
                 if (isChecked) {
                     // The toggle is enabled
                     showPopWindow();
@@ -137,14 +138,12 @@ public class UsageFragment extends Fragment {
                 mUseTimeDataManager.refreshData(position);
                 showView(position);
                 mPopupWindow.dismiss();
-                isShowing = false;
             }
         });
         mRvSelectDate.setAdapter(adapter);
         mRvSelectDate.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         mPopupWindow.showAsDropDown(mBtnDate);
-        isShowing = true;
     }
 
     @Override

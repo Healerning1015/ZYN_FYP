@@ -52,20 +52,12 @@ public class AlarmManagerUtils {
         return instance;
     }
 
-    public void createGetUpAlarmManager(int alarmId, int studyLong) {
+    public void createAlarmManager(int alarmId, int studyLong) {
         am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
         studyTime = 25;
         breakTime = 5;
         calculateStudyTime(studyLong);
-
-        /*
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putInt("1",1);
-        editor.commit();
-
-         */
         Log.e("work task",alarmId+", "+studyTime+", "+breakTime+", "+(studyCount+breakCount));
 
         Intent intent = new Intent(context, LearningModule.class);
@@ -78,46 +70,6 @@ public class AlarmManagerUtils {
         intent.putExtra("switchCount",studyCount+breakCount);
 
         pendingIntent = PendingIntent.getActivity(context, alarmId, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        /*
-        NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-
-        if(Build.VERSION.SDK_INT >= 26)
-        {
-            //当sdk版本大于26
-            String id = "channel_1";
-            String description = "143";
-            int importance = NotificationManager.IMPORTANCE_LOW;
-            NotificationChannel channel = new NotificationChannel(id, description, importance);
-//                     channel.enableLights(true);
-//                     channel.enableVibration(true);//
-            manager.createNotificationChannel(channel);
-            Notification notification = new Notification.Builder(context, id)
-                    .setCategory(Notification.CATEGORY_MESSAGE)
-                    .setSmallIcon(R.mipmap.ic_launcher_round)
-                    .setContentTitle("This is a content title")
-                    .setContentText("This is a content text")
-                    .setCategory(NotificationCompat.CATEGORY_CALL)
-                    .setFullScreenIntent(pendingIntent, true)
-                    .build();
-            manager.notify(1, notification);
-        }
-        else
-        {
-            //当sdk版本小于26
-            Notification notification = new NotificationCompat.Builder(context)
-                    .setContentTitle("This is content title")
-                    .setContentText("This is content text")
-                    .setSmallIcon(R.mipmap.ic_launcher_round)
-                    .setPriority(NotificationCompat.PRIORITY_HIGH)
-                    .setCategory(NotificationCompat.CATEGORY_CALL)
-                    .setFullScreenIntent(pendingIntent, true)
-                    .build();
-            manager.notify(1,notification);
-        }
-
-         */
-
     }
 
     private void calculateStudyTime(int studyLong) {
@@ -155,7 +107,7 @@ public class AlarmManagerUtils {
         calendar.set(Calendar.SECOND,00);
 
         //时间设置后本周周几的时间
-        Log.i("Set time:", calendar.getTime()+"");
+        //Log.i("Set time:", calendar.getTime()+"");
         //判断刚才设置的时间在本周是否已经过去了
         Log.e("isToday()", isToday(calendar.getTime())+"");
         //如果已经过去了，那么推迟一周

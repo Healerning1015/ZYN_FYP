@@ -124,6 +124,8 @@
 
 
     <string name="admin_curfew_time">Curfew Time</string>
+    <string name="admin_change_pwd">Change Parent Mode Password</string>
+    <string name="admin_set_email">Set Email Address</string>
 
 
     <string name="package_usage_stats_required">Package usage stats is required.</string>

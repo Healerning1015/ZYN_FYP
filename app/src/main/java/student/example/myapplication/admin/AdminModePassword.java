@@ -1,4 +1,4 @@
-package student.example.myapplication.admin.set.applimits;
+package student.example.myapplication.admin;
 
 import android.content.Context;
 

@@ -106,7 +106,7 @@ public class Utils {
             }
         }else{
             long endTime = System.currentTimeMillis();
-            long beginTime = endTime - 1000*60*60*24;
+            long beginTime = endTime - 1000*60;//1min
 
             String result = "";
             UsageEvents.Event event = new UsageEvents.Event();

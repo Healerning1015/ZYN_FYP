@@ -35,8 +35,9 @@ public class WelcomePage extends AppCompatActivity {
             }
         }, SPLASH_DISPLAY_LENGHT);
 
-
+        //检查是否当天第一次进入，是则重新读取limit app时间
         isTodayFirstLogin();
+
     }
 
 
