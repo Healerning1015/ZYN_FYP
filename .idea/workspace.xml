@@ -13,43 +13,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fda580cc-a721-4330-98e7-370bae0e6df3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle____app_libs_activation_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle____app_libs_additionnal_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle____app_libs_mail_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/libs/activation.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/libs/additionnal.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/libs/mail.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/EmailAddress.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/ChangePassword.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/SetEmail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/usage/AppDir.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/usage/BitmapUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/usage/EmailReceiver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/usage/SerializableMap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/usage/ServiceSendEmail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/usage/utils/FileUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bg_round.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/admin_change_password.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/admin_set_email.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/My_Application.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/My_Application.app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/WelcomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/WelcomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/AdminFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/AdminFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/AdminSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/AdminSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/services/BackgroundManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/services/BackgroundManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/applimits/AdminModePassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/AdminModePassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/applimits/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/applimits/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/studytime/AlarmManagerUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/studytime/AlarmManagerUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/home/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/home/HomeFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/home/LearningModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/home/LearningModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/usage/UsageFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/usage/UsageFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/admin_set.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/admin_set.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/admin_set_study_time.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/admin_set_study_time.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620824363517</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="在parent mode加入了修改mode密码和邮箱设置，每日定时发送usage feedback">
+      <created>1621058895727</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1621058895728</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -285,7 +256,8 @@
     <MESSAGE value="每天第一次使用app的时候更新每日限制时间，可以倒计时，暂停倒计时，倒计时结束后显示手势锁，还未测试出没见过的致命bug" />
     <MESSAGE value="修改了一点小bug" />
     <MESSAGE value="加入了一些文字提示，最后一页加入了权限管理，待加其他内容" />
-    <option name="LAST_COMMIT_MESSAGE" value="加入了一些文字提示，最后一页加入了权限管理，待加其他内容" />
+    <MESSAGE value="在parent mode加入了修改mode密码和邮箱设置，每日定时发送usage feedback" />
+    <option name="LAST_COMMIT_MESSAGE" value="在parent mode加入了修改mode密码和邮箱设置，每日定时发送usage feedback" />
   </component>
   <component name="WindowStateProjectService">
     <state x="490" y="154" key="#PSD" timestamp="1620987934281">
@@ -324,10 +296,10 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="604" y="240" key="AndroidCreateXmlResourceDialog/0.25.1440.875@0.25.1440.875" timestamp="1616329576773" />
-    <state x="0" y="27" key="CommitChangelistDialog2" timestamp="1620824363166">
+    <state x="0" y="27" key="CommitChangelistDialog2" timestamp="1621058892925">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="0" y="27" key="CommitChangelistDialog2/0.25.1440.875@0.25.1440.875" timestamp="1620824363166" />
+    <state x="0" y="27" key="CommitChangelistDialog2/0.25.1440.875@0.25.1440.875" timestamp="1621058892925" />
     <state x="578" y="208" key="FileChooserDialogImpl" timestamp="1614042457688">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
@@ -340,22 +312,22 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="369" y="149" key="Github.UntrackedFilesDialog/0.25.1440.875@0.25.1440.875" timestamp="1620293363447" />
-    <state width="1178" height="227" key="GridCell.Tab.0.bottom" timestamp="1621058576437">
+    <state width="1178" height="227" key="GridCell.Tab.0.bottom" timestamp="1621059060022">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state width="1178" height="227" key="GridCell.Tab.0.bottom/0.25.1440.875@0.25.1440.875" timestamp="1621058576437" />
-    <state width="1178" height="227" key="GridCell.Tab.0.center" timestamp="1621058576432">
+    <state width="1178" height="227" key="GridCell.Tab.0.bottom/0.25.1440.875@0.25.1440.875" timestamp="1621059060022" />
+    <state width="1178" height="227" key="GridCell.Tab.0.center" timestamp="1621059060022">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state width="1178" height="227" key="GridCell.Tab.0.center/0.25.1440.875@0.25.1440.875" timestamp="1621058576432" />
-    <state width="1178" height="227" key="GridCell.Tab.0.left" timestamp="1621058576430">
+    <state width="1178" height="227" key="GridCell.Tab.0.center/0.25.1440.875@0.25.1440.875" timestamp="1621059060022" />
+    <state width="1178" height="227" key="GridCell.Tab.0.left" timestamp="1621059060021">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state width="1178" height="227" key="GridCell.Tab.0.left/0.25.1440.875@0.25.1440.875" timestamp="1621058576430" />
-    <state width="1178" height="227" key="GridCell.Tab.0.right" timestamp="1621058576435">
+    <state width="1178" height="227" key="GridCell.Tab.0.left/0.25.1440.875@0.25.1440.875" timestamp="1621059060021" />
+    <state width="1178" height="227" key="GridCell.Tab.0.right" timestamp="1621059060022">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state width="1178" height="227" key="GridCell.Tab.0.right/0.25.1440.875@0.25.1440.875" timestamp="1621058576435" />
+    <state width="1178" height="227" key="GridCell.Tab.0.right/0.25.1440.875@0.25.1440.875" timestamp="1621059060022" />
     <state x="435" y="209" key="IDE.errors.dialog" timestamp="1620731803486">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
@@ -364,10 +336,10 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="443" y="93" key="SettingsEditor/0.25.1440.875@0.25.1440.875" timestamp="1618325618780" />
-    <state x="401" y="199" key="Vcs.Push.Dialog.v2" timestamp="1620824370049">
+    <state x="401" y="199" key="Vcs.Push.Dialog.v2" timestamp="1621058918411">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="401" y="199" key="Vcs.Push.Dialog.v2/0.25.1440.875@0.25.1440.875" timestamp="1620824370049" />
+    <state x="401" y="199" key="Vcs.Push.Dialog.v2/0.25.1440.875@0.25.1440.875" timestamp="1621058918411" />
     <state x="0" y="25" width="927" height="875" key="dock-window-1" timestamp="1619287843288">
       <screen x="0" y="25" width="1440" height="875" />
     </state>

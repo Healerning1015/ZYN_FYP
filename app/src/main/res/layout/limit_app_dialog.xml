@@ -19,11 +19,11 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/drawable_circle_small_gray"
+            android:background="@drawable/drawable_circle_small_blue"
             android:indeterminate="false"
             android:max="100"
             android:progress="100"
-            android:progressDrawable="@drawable/drawable_circle_small_blue"
+            android:progressDrawable="@drawable/drawable_circle_small_gray"
             android:rotation="-90" />
 
         <TextView
