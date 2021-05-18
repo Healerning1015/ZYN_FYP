@@ -51,7 +51,6 @@ public class AppInfosAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        // TODO Auto-generated method stub
         int count = 0;
         if(null != appInfos){
             return appInfos.size();
@@ -61,20 +60,17 @@ public class AppInfosAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int index) {
-        // TODO Auto-generated method stub
         return appInfos.get(index);
     }
 
     @Override
     public long getItemId(int index) {
-        // TODO Auto-generated method stub
         return index;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public View getView(final int position, View convertView, ViewGroup arg2) {
-        // TODO Auto-generated method stub
 
         final AppInfo appInfo = appInfos.get(position);
         ViewHolder viewHolder = null;
@@ -117,10 +113,6 @@ public class AppInfosAdapter extends BaseAdapter {
 
              */
         }
-
-
-
-
         return convertView;
     }
 

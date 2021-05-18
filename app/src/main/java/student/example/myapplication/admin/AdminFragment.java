@@ -1,10 +1,12 @@
 package student.example.myapplication.admin;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -45,13 +47,19 @@ public class AdminFragment extends Fragment {
         //((AppCompatActivity)getActivity()).getSupportActionBar().hide();
 
         adminModePassword = new AdminModePassword(getActivity());
-        adminModePassword.setPassword("12345");
+        if(adminModePassword.getPassword()==null){
+            adminModePassword.setPassword("12345");
+        }
 
         editText = view.findViewById(R.id.admin_pwd);
         button = view.findViewById(R.id.enter);
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                // 隐藏软键盘
+                imm.hideSoftInputFromWindow(getActivity().getWindow().getDecorView().getWindowToken(), 0);
+
                 if(editText.getText().toString().equals(adminModePassword.getPassword())){
                     //Fragment newFragment = new Fragment();
                     //FragmentTransaction transaction =getFragmentManager().beginTransaction();
@@ -63,7 +71,7 @@ public class AdminFragment extends Fragment {
                 }
                 else{
                     if (getActivity() != null){
-                        Toast.makeText(getActivity().getApplicationContext(), "Wrong PatternPassword", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity().getApplicationContext(), "Wrong Password", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

@@ -48,7 +48,7 @@
         <activity android:name=".admin.set.curfewtime.CurfewTime" android:label="@string/admin_curfew_time"></activity>
         <activity android:name=".admin.set.studytime.StudyTime" android:label="@string/admin_study_time"></activity>
         <activity android:name=".admin.set.studytime.AddStudyTime" android:label="@string/add_time"></activity>
-        <activity android:name=".admin.set.SetEmail" android:label="@string/admin_set_email"></activity>
+        <activity android:name=".admin.set.setEmail.SetEmail" android:label="@string/admin_set_email"></activity>
         <activity android:name=".admin.set.ChangePassword" android:label="@string/admin_change_pwd"></activity>
 
         <activity android:name=".admin.set.applimits.PatternLockPage"></activity>
@@ -94,11 +94,11 @@
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE"/>
 
-        <service android:name=".usage.ServiceSendEmail"
+        <service android:name=".admin.set.setEmail.ServiceSendEmail"
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE"/>
 
-        <receiver android:name=".usage.EmailReceiver"
+        <receiver android:name=".admin.set.setEmail.EmailReceiver"
             android:enabled="true"
             android:exported="true">
         </receiver>

@@ -22,6 +22,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -336,57 +337,6 @@ public class LearningModule extends AppCompatActivity implements SharedPreferenc
     }
 
     /**
-     * method to show alert take a break
-     */
-    public void breakAlert() {
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(LearningModule.this);
-        alertDialogBuilder.setMessage("Good job! Would you like to take a break");
-
-        alertDialogBuilder.setPositiveButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface arg0, int arg1) {
-                workstartStop();
-            }
-        });
-
-        alertDialogBuilder.setNegativeButton("Take a break", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                breakStartStop();
-            }
-        });
-
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.setCanceledOnTouchOutside(false);
-        alertDialog.show();
-    }
-
-    /**
-     * method to show alert take a break
-     */
-    public void workAlert() {
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(LearningModule.this);
-        alertDialogBuilder.setMessage("The break is over! Now working time");
-        alertDialogBuilder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface arg0, int arg1) {
-                workstartStop();
-            }
-        });
-
-        alertDialogBuilder.setNegativeButton("Finish", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                reset();
-            }
-        });
-
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.setCanceledOnTouchOutside(false);
-        alertDialog.show();
-    }
-
-    /**
      * method to start and stop count down timer break
      */
     private void breakStartStop() {
@@ -470,6 +420,10 @@ public class LearningModule extends AppCompatActivity implements SharedPreferenc
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                // 隐藏软键盘
+                imm.hideSoftInputFromWindow(getWindow().getDecorView().getWindowToken(), 0);
+
                 if(pwd.getText().toString().equals(adminModePassword.getPassword())){
                     setKioskPolicies(false, isAdmin);
                     reset();

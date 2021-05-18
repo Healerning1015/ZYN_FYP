@@ -8,10 +8,9 @@ import android.widget.TableRow;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import student.example.myapplication.MainActivity;
 import student.example.myapplication.R;
 import student.example.myapplication.admin.set.ChangePassword;
-import student.example.myapplication.admin.set.SetEmail;
+import student.example.myapplication.admin.set.setEmail.SetEmail;
 import student.example.myapplication.admin.set.applimits.AppLimits;
 import student.example.myapplication.admin.set.curfewtime.CurfewTime;
 import student.example.myapplication.admin.set.studytime.StudyTime;
@@ -69,12 +68,11 @@ public class AdminSet extends AppCompatActivity {
 
         done.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(AdminSet.this, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK));
+                finish();
+                //startActivity(new Intent(AdminSet.this, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK));
             }
         });
-
     }
-
 
     public void initialView(){
         tablerow1 = findViewById(R.id.app_limits);
@@ -82,9 +80,6 @@ public class AdminSet extends AppCompatActivity {
         tablerow3 = findViewById(R.id.curfew_time);
         tablerow4 = findViewById(R.id.set_email);
         tablerow5 = findViewById(R.id.change_pwd);
-
         done = findViewById(R.id.done);
-
     }
-
 }

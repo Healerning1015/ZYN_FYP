@@ -22,8 +22,6 @@ public class ReceiverAppLock extends BroadcastReceiver {
         dailyLimitTime = new DailyLimitTime(context);
         String appRunning = utils.getLauncherTopApp();
 
-
-
         if(utils.isLock(appRunning) && !appRunning.equals("student.example.myapplication")){
             if(!appRunning.equals(utils.getLastApp())){
                 utils.clearLastApp();

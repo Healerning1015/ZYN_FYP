@@ -2,9 +2,7 @@ package student.example.myapplication.admin.set.studytime;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,11 +12,16 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.github.tlaabs.timetableview.Schedule;
 import com.github.tlaabs.timetableview.Time;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -26,7 +29,10 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import student.example.myapplication.R;
+import student.example.myapplication.admin.set.curfewtime.Curfew;
 import student.example.myapplication.home.HomeFragment;
+
+import static student.example.myapplication.home.HomeFragment.isJSONValid;
 
 public class AddStudyTime extends AppCompatActivity implements View.OnClickListener {
 
@@ -41,7 +47,6 @@ public class AddStudyTime extends AppCompatActivity implements View.OnClickListe
     private Button breakUpBtn;
     private Button submitBtn;
 
-
     private Spinner daySpinner;
     private TimePicker startTimePicker;
     private TimePicker endTimePicker;
@@ -52,10 +57,8 @@ public class AddStudyTime extends AppCompatActivity implements View.OnClickListe
 
     private View view;
 
-
     private String hour;
     private String min;
-    private int timeSlotNo;
 
     //request mode
     private int mode;
@@ -63,10 +66,12 @@ public class AddStudyTime extends AppCompatActivity implements View.OnClickListe
     private Schedule schedule;
     private int editIdx;
 
-    private int studyPerWeek = 0;
-    private int newStudyTime;
-    private int oldStudyTime;
+    private Curfew curfew;
+    private String[] morning;
+    private String[] night;
 
+    //private TimetableView timetable;
+    private ArrayList<Schedule> allSchedules;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,19 +83,28 @@ public class AddStudyTime extends AppCompatActivity implements View.OnClickListe
             actionBar.setHomeButtonEnabled(true);
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
-
         init();
     }
 
     private void init(){
         this.context = this;
 
+        curfew = new Curfew(this);
+        if(curfew.getMorning()!=null){
+            morning = curfew.getMorning();
+        } else {
+            morning = new String[]{"6", "00"};
+        }
+        if(curfew.getNight()!=null){
+            night = curfew.getNight();
+        } else {
+            night = new String[]{"23", "00"};
+        }
+
         deleteBtn = findViewById(R.id.delete_btn);
         breakUpBtn = findViewById(R.id.break_up_btn);
         submitBtn = findViewById(R.id.submit_btn);
 
-        //timeSlotTitle = findViewById(R.id.time_slot_title);
-        //timeSlotNum = findViewById(R.id.time_slot_num);
         daySpinner = findViewById(R.id.study_day_spinner);
         startText = findViewById(R.id.start_text);
         startTimePicker = findViewById(R.id.start_time_picker);
@@ -104,7 +118,6 @@ public class AddStudyTime extends AppCompatActivity implements View.OnClickListe
         schedule.setStartTime(new Time(15,00));
         schedule.setEndTime(new Time(17,00));
 
-        loadSavedData();
         checkMode();
         initView();
     }
@@ -123,6 +136,7 @@ public class AddStudyTime extends AppCompatActivity implements View.OnClickListe
             loadScheduleData();
             breakUpBtn.setVisibility(View.VISIBLE);
         }
+        loadAllScheduleData();
     }
 
     public void initView(){
@@ -162,25 +176,34 @@ public class AddStudyTime extends AppCompatActivity implements View.OnClickListe
         endText.setText(String.format("%02d", endHour)+" : "+String.format("%02d", endMin));
 
         startTimePicker.setIs24HourView(true);
-        startTimePicker.setCurrentHour(startHour);
-        startTimePicker.setCurrentMinute(startMin);
+        startTimePicker.setHour(startHour);
+        startTimePicker.setMinute(startMin);
         final int finalStudyLong = studyLong;
         startTimePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
+
             @Override
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
-                hour = String.format("%02d", hourOfDay);
-                min = String.format("%02d", minute);
-                startText.setText(hour + " : " + min);
-                schedule.getStartTime().setHour(hourOfDay);
-                schedule.getStartTime().setMinute(minute);
-                if(mode == HomeFragment.REQUEST_BORROW){
-                    String newEndHour = String.format("%02d", hourOfDay+(minute+finalStudyLong)/60);
-                    String newEndMin = String.format("%02d", (minute+finalStudyLong)%60);
-                    endText.setText(newEndHour + " : " + newEndMin);
-                    endTimePicker.setCurrentHour(hourOfDay+(minute+finalStudyLong)/60);
-                    endTimePicker.setCurrentMinute((minute+finalStudyLong)%60);
-                    schedule.getEndTime().setHour(hourOfDay+(minute+finalStudyLong)/60);
-                    schedule.getEndTime().setMinute((minute+finalStudyLong)%60);
+                if(hourOfDay < Integer.parseInt(morning[0])){
+                    Toast.makeText(context, "Get up time is " + morning[0] + ":00. Start time can't be earlier than get up time", Toast.LENGTH_SHORT).show();
+                } else if(hourOfDay > endTimePicker.getHour()) {
+                    Toast.makeText(context, "The start time cannot be later than the end time", Toast.LENGTH_SHORT).show();
+                } else if (hourOfDay > Integer.parseInt(night[0])) {
+                    Toast.makeText(context, "Bedtime is " + night[0] + ":00. Start time can't be later than bedtime", Toast.LENGTH_SHORT).show();
+                } else {
+                    hour = String.format("%02d", hourOfDay);
+                    min = String.format("%02d", minute);
+                    startText.setText(hour + " : " + min);
+                    schedule.getStartTime().setHour(hourOfDay);
+                    schedule.getStartTime().setMinute(minute);
+                    if(mode == HomeFragment.REQUEST_BORROW){
+                        String newEndHour = String.format("%02d", hourOfDay+(minute+finalStudyLong)/60);
+                        String newEndMin = String.format("%02d", (minute+finalStudyLong)%60);
+                        endText.setText(newEndHour + " : " + newEndMin);
+                        endTimePicker.setHour(hourOfDay+(minute+finalStudyLong)/60);
+                        endTimePicker.setMinute((minute+finalStudyLong)%60);
+                        schedule.getEndTime().setHour(hourOfDay+(minute+finalStudyLong)/60);
+                        schedule.getEndTime().setMinute((minute+finalStudyLong)%60);
+                    }
                 }
             }
         });
@@ -189,16 +212,24 @@ public class AddStudyTime extends AppCompatActivity implements View.OnClickListe
             endTimePicker.setEnabled(false);
         }
         endTimePicker.setIs24HourView(true);
-        endTimePicker.setCurrentHour(endHour);
-        endTimePicker.setCurrentMinute(endMin);
+        endTimePicker.setHour(endHour);
+        endTimePicker.setMinute(endMin);
         endTimePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
-                hour = String.format("%02d", hourOfDay);
-                min = String.format("%02d", minute);
-                endText.setText(hour + " : " + min);
-                schedule.getEndTime().setHour(hourOfDay);
-                schedule.getEndTime().setMinute(minute);
+                if(hourOfDay < Integer.parseInt(morning[0])){
+                    Toast.makeText(context, "Get up time is " + morning[0] + ":00. End time can't be earlier than get up time", Toast.LENGTH_SHORT).show();
+                } else if(hourOfDay < startTimePicker.getHour()) {
+                    Toast.makeText(context, "The end time cannot be earlier than the start time", Toast.LENGTH_SHORT).show();
+                } else if (hourOfDay > Integer.parseInt(night[0])) {
+                    Toast.makeText(context, "Bedtime is " + night[0] + ":00. End time can't be later than bedtime", Toast.LENGTH_SHORT).show();
+                } else {
+                    hour = String.format("%02d", hourOfDay);
+                    min = String.format("%02d", minute);
+                    endText.setText(hour + " : " + min);
+                    schedule.getEndTime().setHour(hourOfDay);
+                    schedule.getEndTime().setMinute(minute);
+                }
 
                 //如果结束时间可以调节，就会陷入一个开始结束一直互相调节的死循环，因此unable
                 /*
@@ -232,44 +263,48 @@ public class AddStudyTime extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.submit_btn:
-                String startTime = schedule.getStartTime().getHour()+":"+schedule.getStartTime().getMinute();
-                String endTime = schedule.getEndTime().getHour()+":"+schedule.getEndTime().getMinute();
+                //检查时间是否合规
+                boolean isValid = false;
+                String startTime = startText.getText().toString().replace(" ", "");
+                String endTime = endText.getText().toString().replace(" ", "");
                 try {
-                    newStudyTime = (int) between(startTime, endTime);
-                    studyPerWeek += newStudyTime;
+                    isValid = compare(startTime, endTime);
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
 
-                if(mode == StudyTime.REQUEST_ADD){
-                    schedule.setClassTitle("Study");
-                    Intent i = new Intent();
-                    ArrayList<Schedule> schedules = new ArrayList<Schedule>();
-                    //you can add more schedules to ArrayList
-                    schedules.add(schedule);
-                    i.putExtra("schedules",schedules);
-                    //i.putExtra("studyTimePerWeek", studyPerWeek);
-                    setResult(RESULT_OK_ADD,i);
-                    finish();
+                //isValid && !isCoincidence(schedule)
+                if(isValid){
+                    if(mode == StudyTime.REQUEST_ADD){
+                        schedule.setClassTitle("Study");
+                        Intent i = new Intent();
+                        ArrayList<Schedule> schedules = new ArrayList<Schedule>();
+                        //you can add more schedules to ArrayList
+                        schedules.add(schedule);
+                        i.putExtra("schedules",schedules);
+                        setResult(RESULT_OK_ADD,i);
+                        finish();
+                    } else if (mode == StudyTime.REQUEST_EDIT || mode == HomeFragment.REQUEST_BORROW){
+                        schedule.setClassTitle("Study");
+                        //Log.e("schedule start time:  ", schedule.getStartTime().getHour()+":"+schedule.getStartTime().getMinute());
+                        //Log.e("schedule end time:  ", schedule.getEndTime().getHour()+":"+schedule.getEndTime().getMinute());
+                        Intent i = new Intent();
+                        ArrayList<Schedule> schedules = new ArrayList<Schedule>();
+                        schedules.add(schedule);
+                        i.putExtra("idx",editIdx);
+                        i.putExtra("schedules",schedules);
+                        setResult(RESULT_OK_EDIT,i);
+
+                        finish();
+                    }
+                } else {
+                    Toast.makeText(context, "Invalid time slot!", Toast.LENGTH_SHORT).show();
                 }
-                else if(mode == StudyTime.REQUEST_EDIT || mode == HomeFragment.REQUEST_BORROW){
-                    schedule.setClassTitle("Study");
-                    Log.e("schedule start time:  ", schedule.getStartTime().getHour()+":"+schedule.getStartTime().getMinute());
-                    Log.e("schedule end time:  ", schedule.getEndTime().getHour()+":"+schedule.getEndTime().getMinute());
-                    Intent i = new Intent();
-                    ArrayList<Schedule> schedules = new ArrayList<Schedule>();
-                    schedules.add(schedule);
-                    i.putExtra("idx",editIdx);
-                    i.putExtra("schedules",schedules);
-                    //i.putExtra("studyTimePerWeek", studyPerWeek);
-                    setResult(RESULT_OK_EDIT,i);
-                    finish();
-                }
+
                 break;
             case R.id.delete_btn:
                 Intent i = new Intent();
                 i.putExtra("idx",editIdx);
-                //i.putExtra("studyTimePerWeek", studyPerWeek);
                 setResult(RESULT_OK_DELETE, i);
                 finish();
                 break;
@@ -297,9 +332,24 @@ public class AddStudyTime extends AppCompatActivity implements View.OnClickListe
 
                 break;
         }
-        saveByPreference(studyPerWeek);
     }
 
+    //前后两个时间比较，前一个时间是否在后一个时间之前
+    public boolean compare(String time1,String time2) throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        //将字符串形式的时间转化为Date类型的时间
+        Date a = sdf.parse(time1);
+        Date b = sdf.parse(time2);
+        //Date类的一个方法，如果a早于b返回true，否则返回false
+        if (a.before(b)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    //将时间段均分成两部分
     private void breakUpTime(Schedule breakUpSchedule){
         int startHour = schedule.getStartTime().getHour();
         int startMin = schedule.getStartTime().getMinute();
@@ -338,18 +388,15 @@ public class AddStudyTime extends AppCompatActivity implements View.OnClickListe
         ArrayList<Schedule> schedules = (ArrayList<Schedule>)i.getSerializableExtra("schedules");
         schedule = schedules.get(0);
         daySpinner.setSelection(schedule.getDay());
-
-        String startTime = schedule.getStartTime().getHour()+":"+schedule.getStartTime().getMinute();
-        String endTime = schedule.getEndTime().getHour()+":"+schedule.getEndTime().getMinute();
-        try {
-            oldStudyTime = (int) between(startTime, endTime);
-            studyPerWeek -= oldStudyTime;
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
     }
 
+    private void loadAllScheduleData(){
+        Intent intent = getIntent();
+        allSchedules = (ArrayList<Schedule>)intent.getSerializableExtra("allSchedules");
+        Log.w("is allSchedules null", (allSchedules == null)+"");
+    }
 
+    //计算两个时间点的间隔时间
     private long between(String startTime, String endTime) throws ParseException {
         SimpleDateFormat dfs = new SimpleDateFormat("HH:mm");
         Date begin = dfs.parse(startTime); //00:00
@@ -358,19 +405,25 @@ public class AddStudyTime extends AppCompatActivity implements View.OnClickListe
         return between/60;
     }
 
-    private void saveByPreference(int num){
-        SharedPreferences mPref = PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = mPref.edit();
-        editor.putInt("studyTimePerWeek", num);
-        editor.commit();
+
+    //判断是否有时间段重合
+    //问题：检查时的allSchedules中应该除去newSchedule它本身，但由于获得idx很困难，无法通过idx排除自身
+    /*
+    private boolean isCoincidence(Schedule newSchedule){
+        boolean isCoincidence = false;
+        int day = newSchedule.getDay();
+        int i = 1;
+        for (Schedule schedule:allSchedules) {
+            if(schedule.getDay() == day){
+                Log.e("schedule "+(i++),schedule.getDay()+" "+schedule.getStartTime().getHour()+" "+schedule.getEndTime().getHour());
+                isCoincidence |=  TimeCheckUtil.compare(TimeCheckUtil.checkList(newSchedule),TimeCheckUtil.checkList(schedule));
+                Log.e("Is coincidence?", isCoincidence+"");
+            }
+        }
+        return isCoincidence;
     }
 
-    private void loadSavedData(){
-        SharedPreferences mPref = PreferenceManager.getDefaultSharedPreferences(this);
-        int savedData = mPref.getInt("studyTimePerWeek",0);
-        if(savedData == 0) return;
-        studyPerWeek = savedData;
-    }
+     */
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -381,4 +434,5 @@ public class AddStudyTime extends AppCompatActivity implements View.OnClickListe
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

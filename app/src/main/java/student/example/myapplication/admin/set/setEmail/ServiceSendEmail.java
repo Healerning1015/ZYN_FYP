@@ -1,14 +1,9 @@
-package student.example.myapplication.usage;
+package student.example.myapplication.admin.set.setEmail;
 
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.text.Html;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.JobIntentService;
@@ -30,8 +25,7 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
-import student.example.myapplication.admin.EmailAddress;
-import student.example.myapplication.admin.set.SetEmail;
+import student.example.myapplication.usage.SerializableMap;
 
 public class ServiceSendEmail extends JobIntentService {
 
@@ -40,7 +34,7 @@ public class ServiceSendEmail extends JobIntentService {
         enqueueWork(context, ServiceSendEmail.class, JOB_ID, work);
     }
 
-    private EmailAddress emailAddress;
+    private Email email;
     private String sEmail, sPassword;
 
     private String title, content;
@@ -48,9 +42,9 @@ public class ServiceSendEmail extends JobIntentService {
 
     @Override
     protected void onHandleWork(@NonNull Intent intent) {
-        Log.e("ServiceSendEmail","Here is ServiceSendEmail");
+        Log.w("ServiceSendEmail","Here is ServiceSendEmail");
 
-        emailAddress = new EmailAddress(this);
+        email = new Email(this);
 
         //Sender
         sEmail = "putDownYourPhone2021@gmail.com";
@@ -89,7 +83,7 @@ public class ServiceSendEmail extends JobIntentService {
         try {
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(sEmail));
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(emailAddress.getEmail().trim()));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email.getEmail().trim()));
             message.setSubject(title);
             //message.setText(etMessage.getText().toString().trim());
 
@@ -98,11 +92,13 @@ public class ServiceSendEmail extends JobIntentService {
 
             // first part  (the html)
             BodyPart messageBodyPart = new MimeBodyPart();
-            String htmlText = "<h2>Hello!</h2>" +
-                    "<p>Nice to meet you.</p>";
+            String htmlText = "<h2>Hello!</h2>";
 
             htmlText += content;
 
+            htmlText += "<p>This email is only used for feedback on mobile device usage. Please do not reply to this email. </p>" +
+                    "<p>The system will send the application usage of previous day at " + String.format("%02d", email.getSendTime()[0]) + ":"+ String.format("%02d", email.getSendTime()[1]) + ". </p>" +
+                    "<p>Thank you.</p>";
 
             messageBodyPart.setContent(htmlText, "text/html;charset=UTF-8");
 

@@ -1,21 +1,16 @@
-package student.example.myapplication.usage;
+package student.example.myapplication.admin.set.setEmail;
 
+import android.annotation.TargetApi;
+import android.app.usage.UsageStats;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.PixelFormat;
-import android.graphics.drawable.Drawable;
-import android.util.Base64;
+import android.os.Build;
 import android.util.Log;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -24,9 +19,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
+import student.example.myapplication.usage.AppDir;
+import student.example.myapplication.usage.SerializableMap;
 import student.example.myapplication.usage.domain.PackageInfo;
 import student.example.myapplication.usage.domain.UseTimeDataManager;
 
@@ -65,7 +60,13 @@ public class EmailReceiver extends BroadcastReceiver {
     }
 
     public void serializableMap(Context context){
-        for (int i = 0; i < mPackageInfoList.size(); i++){
+        int showNum;
+        if(mPackageInfoList.size()>=10){
+            showNum = 10;
+        } else {
+            showNum = mPackageInfoList.size();
+        }
+        for (int i = 0; i < showNum; i++){
             try {
                 Bitmap bitmap = BitmapUtil.drawableToBitmap(packageManager.getApplicationIcon(mPackageInfoList.get(i).getmPackageName()));
                 String pngFilePath = AppDir.getInstance(context).IMAGE + File.separator + System.currentTimeMillis() + ".png";
@@ -98,9 +99,18 @@ public class EmailReceiver extends BroadcastReceiver {
     }
 
     public String htmlContent(Context context){
-        String htmlText = "<table cellspacing='10'>" +
-                "<tr><th>Icon</th><th>Use Count</th><th>Use Time</th><th>App Name</th></tr>";
-        for (int i = 0; i < mPackageInfoList.size(); i++){
+        String htmlText = "<p>The following table shows the usage of device yesterday. ("+ getYesterday() +")</p>" +
+                "<p>Due to the mailbox limitation, only ten applications are displayed. If you need to check the detailed usage, please use the APP to check.</p>" +
+                "<table cellspacing='10'>" +
+                "<tr><th></th><th>App Name</th><th>Use Count</th><th>Use Time</th></tr>";
+        int showNum;
+        if(mPackageInfoList.size()>=10){
+            showNum = 10;
+        } else {
+            showNum = mPackageInfoList.size();
+        }
+
+        for (int i = 0; i < showNum; i++){
             htmlText += "<tr>";
             htmlText += "<td><img style='display:block; width:40px;height:40px;' src='cid:logo_"+ i +"' /></td>";
 
@@ -113,11 +123,20 @@ public class EmailReceiver extends BroadcastReceiver {
                 e.printStackTrace();
             }
             htmlText += "<td>"+ mPackageInfoList.get(i).getmUsedCount() +"</td>" +
-                    "<td>"+ hmsTimeFormatter(mPackageInfoList.get(i).getmUsedTime()) +"</td>" +
+                    "<td>"+ hmsTimeFormatter(getTotalTimeFromUsage(mPackageInfoList.get(i).getmPackageName())) +"</td>" +
                     "</tr>";
         }
         htmlText += "</table>";
         return htmlText;
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private long getTotalTimeFromUsage(String pkg){
+        UsageStats stats = mUseTimeDataManager.getUsageStats(pkg);
+        if(stats == null){
+            return 0;
+        }
+        return stats.getTotalTimeInForeground();
     }
 
     private String hmsTimeFormatter(long milliSeconds) {

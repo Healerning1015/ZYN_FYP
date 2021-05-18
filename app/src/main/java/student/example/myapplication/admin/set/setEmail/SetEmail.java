@@ -1,4 +1,4 @@
-package student.example.myapplication.admin.set;
+package student.example.myapplication.admin.set.setEmail;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,38 +11,29 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import student.example.myapplication.R;
-import student.example.myapplication.admin.EmailAddress;
-import student.example.myapplication.usage.ServiceSendEmail;
 
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.os.AsyncTask;
-import android.text.Html;
-import android.util.Log;
-import android.widget.Toast;
-
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Transport;
+import static student.example.myapplication.MainActivity.emailAlarmSet;
 
 public class SetEmail extends AppCompatActivity {
 
+    private Context context;
     private EditText et_email;
-    private Button bt_email;
+    private Button bt_submit;
     private CheckBox cb_send;
-    EmailAddress emailAddress;
+
+    private LinearLayout layout_chooseTime;
+    private TimePicker send_time_picker;
+    Email email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,16 +46,11 @@ public class SetEmail extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        et_email = findViewById(R.id.et_email);
-        bt_email = findViewById(R.id.bt_email);
-        cb_send = findViewById(R.id.cb_send);
-        emailAddress = new EmailAddress(this);
-        emailAddress.setWhetherSend(true);
+        context = this;
 
-        if(emailAddress.getEmail()!=null){
-            et_email.setText(emailAddress.getEmail());
-        }
-        bt_email.setOnClickListener(new View.OnClickListener() {
+        initView();
+
+        bt_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(et_email.getText() == null || et_email.getText().toString().equals("")){
@@ -72,17 +58,18 @@ public class SetEmail extends AppCompatActivity {
                 } else if(!isEmail(et_email.getText().toString().trim())){
                     Toast.makeText(SetEmail.this, "Email format error", Toast.LENGTH_SHORT).show();
                 } else {
-                    emailAddress.setEmail(et_email.getText().toString().trim());
+                    email.setEmail(et_email.getText().toString().trim());
                     Toast.makeText(SetEmail.this, "Successful", Toast.LENGTH_SHORT).show();
                     InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                     // 隐藏软键盘
                     imm.hideSoftInputFromWindow(getWindow().getDecorView().getWindowToken(), 0);
-                    if(emailAddress.getWhetherSend()){
+                    if(email.getWhetherSend()){
                         Log.e("Set Email","try to send email");
                         sendEmail();
                     }
                     //finish();
                 }
+                emailAlarmSet(context);
             }
         });
 
@@ -90,13 +77,47 @@ public class SetEmail extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if(isChecked){
-                    emailAddress.setWhetherSend(true);
+                    email.setWhetherSend(true);
+                    layout_chooseTime.setVisibility(View.VISIBLE);
                 } else {
-                    emailAddress.setWhetherSend(false);
+                    email.setWhetherSend(false);
+                    layout_chooseTime.setVisibility(View.GONE);
                 }
-                //Log.e("checkBox", emailAddress.getWhetherSend()+"");
+                //Log.e("checkBox", email.getWhetherSend()+"");
             }
         });
+
+        send_time_picker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
+            @Override
+            public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+                int[] time = {hourOfDay, minute};
+                email.setSendTime(time);
+            }
+        });
+    }
+
+    private void initView() {
+        email = new Email(this);
+        email.setWhetherSend(true);
+
+        et_email = findViewById(R.id.et_email);
+        bt_submit = findViewById(R.id.bt_submit);
+        cb_send = findViewById(R.id.cb_send);
+        layout_chooseTime = findViewById(R.id.layout_chooseTime);
+        send_time_picker = findViewById(R.id.send_time_picker);
+
+        if(email.getEmail()!=null){
+            et_email.setText(email.getEmail());
+        }
+        if(email.getSendTime()==null){
+            int[] time = {8, 0};
+            email.setSendTime(time);
+        }
+
+        send_time_picker.setIs24HourView(true);
+        int[] time = email.getSendTime();
+        send_time_picker.setHour(time[0]);
+        send_time_picker.setMinute(time[1]);
     }
 
     public void sendEmail(){

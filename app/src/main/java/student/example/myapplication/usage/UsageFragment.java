@@ -77,6 +77,21 @@ public class UsageFragment extends Fragment {
     private void initView(View root){
         mLlSelectDate = (LinearLayout) root.findViewById(R.id.ll_select_date);
         mBtnDate = (ToggleButton) root.findViewById(R.id.tv_date);
+
+        mBtnDate.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                Log.e("onCheckedChanged", isChecked+"");
+                if (isChecked) {
+                    // The toggle is enabled
+                    showPopWindow();
+                } else {
+                    // The toggle is disabled
+                    mPopupWindow.dismiss();
+                    mBtnDate.setTextOff(mDateList.get(dayNum));
+                }
+            }
+        });
+
         mRecyclerView = (RecyclerView) root.findViewById(R.id.rv_show_statistics);
         layout_permission = root.findViewById(R.id.layout_permission);
         showView(dayNum);
@@ -90,20 +105,8 @@ public class UsageFragment extends Fragment {
 
     private void showView(int dayNumber){
 
+        dayNum = dayNumber;
         mBtnDate.setText(mDateList.get(dayNumber));
-
-        mBtnDate.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                Log.e("onCheckedChanged", isChecked+"");
-                if (isChecked) {
-                    // The toggle is enabled
-                    showPopWindow();
-                } else {
-                    // The toggle is disabled
-                    mPopupWindow.dismiss();
-                }
-            }
-        });
 
         mUseTimeAdapter = new UseTimeAdapter(getActivity(),mUseTimeDataManager.getmPackageInfoListOrderByTime());
         mUseTimeAdapter.setOnItemClickListener(new UseTimeAdapter.OnRecyclerViewItemClickListener() {
@@ -138,6 +141,8 @@ public class UsageFragment extends Fragment {
                 mUseTimeDataManager.refreshData(position);
                 showView(position);
                 mPopupWindow.dismiss();
+                mBtnDate.setChecked(false);
+
             }
         });
         mRvSelectDate.setAdapter(adapter);
@@ -152,7 +157,7 @@ public class UsageFragment extends Fragment {
             if(Utils.checkPermission(getActivity())){
                 layout_permission.setVisibility(View.GONE);
                 mRecyclerView.setVisibility(View.VISIBLE);
-                initData(dayNum);
+                //initData(dayNum);
             } else{
                 layout_permission.setVisibility(View.VISIBLE);
                 mRecyclerView.setVisibility(View.GONE);

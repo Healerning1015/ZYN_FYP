@@ -7,6 +7,7 @@ import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -16,6 +17,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import student.example.myapplication.R;
 import student.example.myapplication.admin.set.applimits.Utils;
+import student.example.myapplication.home.LearningModule;
 
 public class ProfileFragment extends Fragment {
 
@@ -24,6 +26,8 @@ public class ProfileFragment extends Fragment {
     private LinearLayout allowUsageAccess;
     private ImageView drawOver;
     private ImageView usageAccess;
+
+    private Button btn;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -57,6 +61,13 @@ public class ProfileFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), LearningModule.class));
+            }
+        });
     }
 
     private void initView(View view) {
@@ -64,6 +75,8 @@ public class ProfileFragment extends Fragment {
         allowUsageAccess = view.findViewById(R.id.allow_usage_access);
         drawOver = view.findViewById(R.id.img_draw_over);
         usageAccess = view.findViewById(R.id.img_usage_access);
+
+        btn = view.findViewById(R.id.btn);
     }
 
     @Override

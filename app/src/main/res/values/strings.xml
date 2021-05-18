@@ -3,7 +3,7 @@
     <string name="title_home">Home</string>
     <string name="title_admin">Parent Mode</string>
     <string name="title_usage">History Usage</string>
-    <string name="title_profile">Profile</string>
+    <string name="title_setting">Setting</string>
 
 
     <string name="admin_app_limits">App Limits</string>
@@ -148,7 +148,6 @@
     <string-array name="sticker_color">
         <item>#769fcd</item>
         <item>#b9d7ea</item>
-        <item>#d6e6f2</item>
     </string-array>
 
 
@@ -172,4 +171,9 @@
 
     <!--setting-->
     <string name="permission_setting">Permission Setting</string>
+
+    <!--set email-->
+    <string name="choose_send_time">Choose send time</string>
+    <string name="set_email_note">Note: This email address is only used for feedback on mobile device usage.</string>
+    <string name="choose_time_note">The system will send the application usage of previous day at this time.</string>
 </resources>

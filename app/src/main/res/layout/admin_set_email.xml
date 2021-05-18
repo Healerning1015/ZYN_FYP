@@ -16,13 +16,13 @@
         android:textSize="18sp"/>
 
     <EditText
+        android:id="@+id/et_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_email"
-        android:hint="Your Email Address"
         android:layout_margin="10dp"
-        android:padding="12dp"
-        android:background="@drawable/bg_round"/>
+        android:background="@drawable/bg_round"
+        android:hint="Your Email Address"
+        android:padding="12dp" />
 
     <CheckBox
         android:id="@+id/cb_send"
@@ -33,16 +33,48 @@
         android:text="Send feedback daily"
         android:checked="true"/>
 
+    <LinearLayout
+        android:id="@+id/layout_chooseTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:padding="12dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical"
+        android:background="@drawable/bg_round">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/choose_send_time"
+            android:textSize="15sp"
+            android:textColor="@color/blue_4"/>
+
+        <TimePicker
+            android:id="@+id/send_time_picker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:timePickerMode="spinner" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/choose_time_note"/>
+
+    </LinearLayout>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:text="Note: This email address is only used for feedback on mobile device usage."/>
+        android:text="@string/set_email_note"/>
 
     <Button
-        android:id="@+id/bt_email"
+        android:id="@+id/bt_submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"

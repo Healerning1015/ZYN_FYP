@@ -13,6 +13,7 @@ import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -34,6 +35,7 @@ import java.util.List;
 
 import student.example.myapplication.MainActivity;
 import student.example.myapplication.R;
+import student.example.myapplication.admin.AdminModePassword;
 import student.example.myapplication.admin.services.BackgroundManager;
 import student.example.myapplication.home.LearningModule;
 
@@ -150,7 +152,6 @@ public class PatternLockPage extends AppCompatActivity {
         }
     }
 
-    //这里貌似会出现bug
     private void initIconApp() {
         if(getIntent().getStringExtra("broadcast_receiver") != null){
             Log.e("PatternLockPage", "Go Here");
@@ -178,13 +179,21 @@ public class PatternLockPage extends AppCompatActivity {
         button.setVisibility(View.GONE);
         builder.setView(dialogView);
 
+        final EditText pwd = dialogView.findViewById(R.id.admin_pwd);
+        final AdminModePassword adminModePassword = new AdminModePassword(this);
+
         //点击对话框以外的区域是否让对话框消失
         builder.setCancelable(true);
         //设置正面按钮
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(PatternLockPage.this, "你点击了是的", Toast.LENGTH_SHORT).show();
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                // 隐藏软键盘
+                imm.hideSoftInputFromWindow(getWindow().getDecorView().getWindowToken(), 0);
+                if(pwd.getText().toString().equals(adminModePassword.getPassword())){
+                    startAct();
+                }
                 dialog.dismiss();
             }
         });
@@ -192,7 +201,7 @@ public class PatternLockPage extends AppCompatActivity {
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(PatternLockPage.this, "你点击了不是", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(PatternLockPage.this, "你点击了不是", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             }
         });
@@ -217,7 +226,6 @@ public class PatternLockPage extends AppCompatActivity {
     }
 
     private void startAct(){
-        //setKioskPolicies(false, isAdmin);
 
         if(getIntent().getStringExtra("broadcast_receiver") == null){
             startActivity(new Intent(this, AppLimits.class));

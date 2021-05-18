@@ -34,15 +34,12 @@ public class StudyTime extends AppCompatActivity implements View.OnClickListener
     public static final int REQUEST_EDIT = 2;
     public int hours;
     public int mins;
-    String studyTimePerWeek;
 
     private Button addBtn;
     private Button clearBtn;
     private TimetableView timetable;
-    private TextView studyPerWeek;
+    private ArrayList<Schedule> allSchedules;
 
-
-    private AlarmManagerUtils alarmManagerUtils;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,14 +61,11 @@ public class StudyTime extends AppCompatActivity implements View.OnClickListener
         clearBtn = findViewById(R.id.clear_btn);
 
         timetable = findViewById(R.id.timetable);
-        //timetable.setHeaderHighlight(2);
-
-        studyPerWeek = findViewById(R.id.study_per_week);
-
-        alarmManagerUtils = AlarmManagerUtils.getInstance(this);
 
         loadSavedData();
-        loadSavedStudyTime();
+        allSchedules = timetable.getAllSchedulesInStickers();
+        //Log.w("is allSchedules null", (allSchedules == null)+"");
+
         initView();
     }
 
@@ -86,11 +80,10 @@ public class StudyTime extends AppCompatActivity implements View.OnClickListener
                 i.putExtra("mode",REQUEST_EDIT);
                 i.putExtra("idx", idx);
                 i.putExtra("schedules", schedules);
+                i.putExtra("allSchedules",allSchedules);
                 startActivityForResult(i,REQUEST_EDIT);
             }
         });
-
-        studyPerWeek.setText(studyTimePerWeek);
     }
 
     @Override
@@ -99,6 +92,7 @@ public class StudyTime extends AppCompatActivity implements View.OnClickListener
             case R.id.add_btn:
                 Intent i = new Intent(this,AddStudyTime.class);
                 i.putExtra("mode",REQUEST_ADD);
+                i.putExtra("allSchedules",allSchedules);
                 startActivityForResult(i,REQUEST_ADD);
                 break;
             case R.id.clear_btn:
@@ -114,9 +108,7 @@ public class StudyTime extends AppCompatActivity implements View.OnClickListener
             case REQUEST_ADD:
                 if (resultCode == AddStudyTime.RESULT_OK_ADD) {
                     ArrayList<Schedule> item = (ArrayList<Schedule>) data.getSerializableExtra("schedules");
-                    studyTimePerWeek = data.getStringExtra("studyTimePerWeek");
                     timetable.add(item);
-                    Log.e("item ", item.toString()+"");
                 }
                 break;
             case REQUEST_EDIT:
@@ -124,13 +116,11 @@ public class StudyTime extends AppCompatActivity implements View.OnClickListener
                 if (resultCode == AddStudyTime.RESULT_OK_EDIT) {
                     int idx = data.getIntExtra("idx", -1);
                     ArrayList<Schedule> item = (ArrayList<Schedule>) data.getSerializableExtra("schedules");
-                    studyTimePerWeek = data.getStringExtra("studyTimePerWeek");
                     timetable.edit(idx, item);
                 }
                 /** Edit -> Delete */
                 else if (resultCode == AddStudyTime.RESULT_OK_DELETE) {
                     int idx = data.getIntExtra("idx", -1);
-                    studyTimePerWeek = data.getStringExtra("studyTimePerWeek");
                     timetable.remove(idx);
                 }
                 break;
@@ -155,49 +145,7 @@ public class StudyTime extends AppCompatActivity implements View.OnClickListener
         if(savedData == null && savedData.equals("")) return;
         if(isJSONValid(savedData)){
             timetable.load(savedData);
-            /*
-            try {
-                //String转JSONObject
-                JSONObject result = new JSONObject(savedData);
-                JSONArray sticker = result.optJSONArray("sticker");
-                for(int i=0; i < sticker.length(); i++){
-                    JSONObject jsonObject1 = sticker.getJSONObject(i);
-                    int idx = Integer.parseInt(jsonObject1.optString("idx"));
-                    Log.e("idx", idx+"");
-
-                    JSONArray schedule = jsonObject1.optJSONArray("schedule");
-                    for(int j=0; j < schedule.length(); j++){
-                        JSONObject jsonObject2 = schedule.getJSONObject(j);
-                        int day = Integer.parseInt(jsonObject2.optString("day"));
-                        JSONObject startTime = jsonObject2.optJSONObject("startTime");
-                        int start_hour = Integer.parseInt(startTime.optString("hour"));
-                        int start_min = Integer.parseInt(startTime.optString("minute"));
-                        Log.e("day", day+"");
-                        Log.e("start_hour", start_hour+"");
-                        Log.e("start_min", start_min+"");
-
-
-                        alarmManagerUtils.createGetUpAlarmManager(idx);
-                        alarmManagerUtils.getUpAlarmManagerStartWork(day+2, start_hour, start_min);
-                    }
-
-                }
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-             */
         }
-
-
-    }
-
-    private void loadSavedStudyTime(){
-        SharedPreferences mPref = PreferenceManager.getDefaultSharedPreferences(this);
-        int saveStudyTime = mPref.getInt("studyTimePerWeek", 0);
-        if(saveStudyTime == 0) return;
-        studyTimePerWeek = saveStudyTime+"";
     }
 
     @Override

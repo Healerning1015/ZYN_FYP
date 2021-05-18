@@ -58,7 +58,7 @@ public class AlarmManagerUtils {
         studyTime = 25;
         breakTime = 5;
         calculateStudyTime(studyLong);
-        Log.e("work task",alarmId+", "+studyTime+", "+breakTime+", "+(studyCount+breakCount));
+        //Log.e("work task",alarmId+", "+studyTime+", "+breakTime+", "+(studyCount+breakCount));
 
         Intent intent = new Intent(context, LearningModule.class);
         //intent.setComponent(new ComponentName("student.example.myapplication", "student.example.myapplication.home.LearningModule"));
@@ -73,7 +73,7 @@ public class AlarmManagerUtils {
     }
 
     private void calculateStudyTime(int studyLong) {
-        Log.e("studyLong",studyLong+"");
+        //Log.e("studyLong",studyLong+"");
         if(studyLong>=55){
             studyCount = (studyLong+5) / 30;
             breakCount = studyCount -1;
@@ -109,12 +109,12 @@ public class AlarmManagerUtils {
         //时间设置后本周周几的时间
         //Log.i("Set time:", calendar.getTime()+"");
         //判断刚才设置的时间在本周是否已经过去了
-        Log.e("isToday()", isToday(calendar.getTime())+"");
+        //Log.e("isToday()", isToday(calendar.getTime())+"");
         //如果已经过去了，那么推迟一周
         if(!isToday(calendar.getTime())){
             calendar.add(Calendar.DAY_OF_MONTH,7);
         }
-        Log.i("Set time:", calendar.getTime()+"");
+        Log.i("Set study time:", calendar.getTime()+"");
 
         //版本适配 System.currentTimeMillis()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {// 6.0及以上

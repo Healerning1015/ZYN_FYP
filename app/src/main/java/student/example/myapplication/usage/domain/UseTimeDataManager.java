@@ -121,7 +121,7 @@ public class UseTimeDataManager {
 
         for (int n = 0 ; n < mPackageInfoList.size() ; n++){
             for (int m = n+1 ; m < mPackageInfoList.size() ; m++){
-                if(mPackageInfoList.get(n).getmUsedTime() < mPackageInfoList.get(m).getmUsedTime()){
+                if(getTotalTimeFromUsage(mPackageInfoList.get(n).getmPackageName()) < getTotalTimeFromUsage(mPackageInfoList.get(m).getmPackageName())){
                     PackageInfo temp = mPackageInfoList.get(n);
                     mPackageInfoList.set(n,mPackageInfoList.get(m));
                     mPackageInfoList.set(m,temp);
@@ -131,6 +131,15 @@ public class UseTimeDataManager {
 
         Log.i(TAG," UseTimeDataManager-getmPackageInfoListOrderByTime()   排序后：mPackageInfoList.size()" + mPackageInfoList.size());
         return mPackageInfoList;
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private long getTotalTimeFromUsage(String pkg){
+        UsageStats stats = getUsageStats(pkg);
+        if(stats == null){
+            return 0;
+        }
+        return stats.getTotalTimeInForeground();
     }
 
     //按照使用次数的多少进行排序，获取应用使用情况列表

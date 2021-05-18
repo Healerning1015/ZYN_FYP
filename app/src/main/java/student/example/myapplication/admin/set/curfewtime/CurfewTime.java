@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,13 +16,11 @@ import student.example.myapplication.admin.AdminSet;
 
 public class CurfewTime extends AppCompatActivity {
 
-    Spinner sleep_time_spinner = null;
-    TimePicker timePicker = null;
-    TextView bedtime_text = null;
-    String hour;
-    String min;
-    String getSleepTime;
-
+    private Spinner sleep_time_spinner;
+    private TimePicker timePicker;
+    private TextView bedtime_text;
+    private String hour, min;
+    private Curfew curfew;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,21 +33,9 @@ public class CurfewTime extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
+        curfew = new Curfew(this);
 
-        Intent intent = getIntent();
-        Bundle bundle = intent.getBundleExtra("bundle");
-
-        if (bundle != null) {
-            //getHour = bundle.getString("hour");
-            //getMin = bundle.getString("min");
-            hour = bundle.getString("hour");
-            min = bundle.getString("min");
-            getSleepTime = bundle.getString("sleep_time");
-        }
-
-        //initialView(Integer.parseInt(getHour), Integer.parseInt(getMin), Integer.parseInt(getSleepTime));
-        initialView(0, 0, 6);
-
+        initialView(0, 0, 8);
 
         timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override
@@ -67,23 +54,27 @@ public class CurfewTime extends AppCompatActivity {
 
         timePicker = findViewById(R.id.bedtime_picker);
         timePicker.setIs24HourView(true);
-        timePicker.setCurrentHour(hour);
-        timePicker.setCurrentMinute(min);
+        timePicker.setHour(hour);
+        timePicker.setMinute(min);
 
         bedtime_text = findViewById(R.id.bedtime_text);
-        bedtime_text.setText(String.format("%02d", timePicker.getCurrentHour())+" : "+String.format("%02d", timePicker.getCurrentMinute()));
+        bedtime_text.setText(String.format("%02d", timePicker.getHour())+" : "+String.format("%02d", timePicker.getMinute()));
     }
 
     public void save(View button){
-        Bundle bundle = new Bundle();
-        bundle.putString("hour", hour);
-        bundle.putString("min", min);
-        bundle.putString("sleep_time", sleep_time_spinner.getSelectedItem().toString());
+        String[] night = {hour, min}; 
+        curfew.setNight(night);
 
-        Intent intent = new Intent(CurfewTime.this, AdminSet.class);
-        intent.putExtra("bundle_curfew", bundle);
-        startActivity(intent);
+        int get_up_hour = Integer.parseInt(hour) + Integer.parseInt(sleep_time_spinner.getSelectedItem().toString());
+        if(get_up_hour >= 24){
+            get_up_hour -= 24;
+        }
+        String[] morning = {get_up_hour+"", min};
+        curfew.setMorning(morning);
 
+        Toast.makeText(this, hour+":"+min+" - "+get_up_hour+":"+min, Toast.LENGTH_SHORT).show();
+
+        finish();
     }
 
     @Override

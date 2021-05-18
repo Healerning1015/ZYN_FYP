@@ -53,11 +53,7 @@ public class AppLimits extends AppCompatActivity {
         setContentView(R.layout.admin_set_app_limits);
 
         androidx.appcompat.app.ActionBar actionBar = getSupportActionBar();
-        if(actionBar != null){
-            //ColorDrawable newColor = new ColorDrawable(getResources().getColor(R.color.blue_3));
-            //newColor.setAlpha(255);
-            //actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.blue_3)));
-            actionBar.setHomeButtonEnabled(true);
+        if(actionBar != null){actionBar.setHomeButtonEnabled(true);
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
@@ -87,7 +83,6 @@ public class AppLimits extends AppCompatActivity {
             }
         });
         infosAdapter.notifyDataSetChanged();
-
     }
 
     public void updateUI(List<AppInfo> appInfos) {
@@ -215,13 +210,15 @@ public class AppLimits extends AppCompatActivity {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
             if(Utils.checkPermission(this)){
                 layout_permission.setVisibility(View.GONE);
-                layout_app_limits_hint.setVisibility(View.GONE);
                 if(utilsPassword.getPassword() != null){
                     appInfoListView.setVisibility(View.VISIBLE);
+                    layout_app_limits_hint.setVisibility(View.GONE);
+                } else {
+                    appInfoListView.setVisibility(View.GONE);
+                    layout_app_limits_hint.setVisibility(View.VISIBLE);
                 }
             } else{
                 layout_permission.setVisibility(View.VISIBLE);
-                layout_app_limits_hint.setVisibility(View.VISIBLE);
                 appInfoListView.setVisibility(View.GONE);
             }
 
