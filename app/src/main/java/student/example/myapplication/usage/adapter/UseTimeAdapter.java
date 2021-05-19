@@ -70,7 +70,7 @@ public class UseTimeAdapter extends RecyclerView.Adapter<UseTimeAdapter.UseTimeV
         if(mPackageInfoList.get(position).getmUsedCount() != 0){
             holder.tv_used_count.setText(" " + mPackageInfoList.get(position).getmUsedCount()+"");
         } else {
-            holder.tv_used_count.setText(" unidentified");
+            holder.tv_used_count.setText(" x");
         }
         holder.tv_calculate_used_time.setText(" " + DateUtils.formatElapsedTime(getTotalTimeFromUsage(mPackageInfoList.get(position).getmPackageName())/1000));
         //DateTransUtils.formatElapsedTime(mPackageInfoList.get(position).getmUsedTime()/1000)

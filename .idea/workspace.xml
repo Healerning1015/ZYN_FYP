@@ -15,6 +15,7 @@
     <list default="true" id="fda580cc-a721-4330-98e7-370bae0e6df3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/setEmail/EmailReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/setEmail/EmailReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/usage/adapter/UseTimeAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/usage/adapter/UseTimeAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/used_time_item_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/used_time_item_layout.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -261,7 +262,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621351915124</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="最最终版本，修改了一点小问题">
+      <created>1621412043014</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1621412043014</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -276,7 +284,8 @@
     <MESSAGE value="在parent mode加入了修改mode密码和邮箱设置，每日定时发送usage feedback" />
     <MESSAGE value="解决了home页app limit的使用进度条不减少的问题" />
     <MESSAGE value="最终版本" />
-    <option name="LAST_COMMIT_MESSAGE" value="最终版本" />
+    <MESSAGE value="最最终版本，修改了一点小问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="最最终版本，修改了一点小问题" />
   </component>
   <component name="WindowStateProjectService">
     <state x="353" y="145" key="#Inspections" timestamp="1621189159382">
@@ -323,10 +332,10 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="604" y="240" key="AndroidCreateXmlResourceDialog/0.25.1440.875@0.25.1440.875" timestamp="1621235690700" />
-    <state x="0" y="27" key="CommitChangelistDialog2" timestamp="1621351914629">
+    <state x="0" y="27" key="CommitChangelistDialog2" timestamp="1621412042681">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="0" y="27" key="CommitChangelistDialog2/0.25.1440.875@0.25.1440.875" timestamp="1621351914629" />
+    <state x="0" y="27" key="CommitChangelistDialog2/0.25.1440.875@0.25.1440.875" timestamp="1621412042681" />
     <state x="578" y="208" key="FileChooserDialogImpl" timestamp="1614042457688">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
@@ -339,22 +348,22 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="369" y="149" key="Github.UntrackedFilesDialog/0.25.1440.875@0.25.1440.875" timestamp="1620293363447" />
-    <state width="1111" height="227" key="GridCell.Tab.0.bottom" timestamp="1621249545727">
+    <state width="1111" height="227" key="GridCell.Tab.0.bottom" timestamp="1621412754260">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state width="1111" height="227" key="GridCell.Tab.0.bottom/0.25.1440.875@0.25.1440.875" timestamp="1621249545727" />
-    <state width="1111" height="227" key="GridCell.Tab.0.center" timestamp="1621249545726">
+    <state width="1111" height="227" key="GridCell.Tab.0.bottom/0.25.1440.875@0.25.1440.875" timestamp="1621412754260" />
+    <state width="1111" height="227" key="GridCell.Tab.0.center" timestamp="1621412754259">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state width="1111" height="227" key="GridCell.Tab.0.center/0.25.1440.875@0.25.1440.875" timestamp="1621249545726" />
-    <state width="1111" height="227" key="GridCell.Tab.0.left" timestamp="1621249545725">
+    <state width="1111" height="227" key="GridCell.Tab.0.center/0.25.1440.875@0.25.1440.875" timestamp="1621412754259" />
+    <state width="1111" height="227" key="GridCell.Tab.0.left" timestamp="1621412754259">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state width="1111" height="227" key="GridCell.Tab.0.left/0.25.1440.875@0.25.1440.875" timestamp="1621249545725" />
-    <state width="1111" height="227" key="GridCell.Tab.0.right" timestamp="1621249545726">
+    <state width="1111" height="227" key="GridCell.Tab.0.left/0.25.1440.875@0.25.1440.875" timestamp="1621412754259" />
+    <state width="1111" height="227" key="GridCell.Tab.0.right" timestamp="1621412754260">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state width="1111" height="227" key="GridCell.Tab.0.right/0.25.1440.875@0.25.1440.875" timestamp="1621249545726" />
+    <state width="1111" height="227" key="GridCell.Tab.0.right/0.25.1440.875@0.25.1440.875" timestamp="1621412754260" />
     <state x="435" y="209" key="IDE.errors.dialog" timestamp="1620731803486">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
@@ -363,10 +372,10 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="443" y="93" key="SettingsEditor/0.25.1440.875@0.25.1440.875" timestamp="1618325618780" />
-    <state x="401" y="199" key="Vcs.Push.Dialog.v2" timestamp="1621351937921">
+    <state x="401" y="199" key="Vcs.Push.Dialog.v2" timestamp="1621412049358">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="401" y="199" key="Vcs.Push.Dialog.v2/0.25.1440.875@0.25.1440.875" timestamp="1621351937921" />
+    <state x="401" y="199" key="Vcs.Push.Dialog.v2/0.25.1440.875@0.25.1440.875" timestamp="1621412049358" />
     <state x="0" y="25" width="927" height="875" key="dock-window-1" timestamp="1619287843288">
       <screen x="0" y="25" width="1440" height="875" />
     </state>

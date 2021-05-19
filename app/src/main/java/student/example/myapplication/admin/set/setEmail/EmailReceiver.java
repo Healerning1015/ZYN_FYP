@@ -117,19 +117,15 @@ public class EmailReceiver extends BroadcastReceiver {
             try {
                 android.content.pm.PackageInfo info = null;
                 info = packageManager.getPackageInfo(mPackageInfoList.get(i).getmPackageName(),PackageManager.GET_ACTIVITIES);
-                if(info.applicationInfo.loadLabel(packageManager).toString() != null){
-                    htmlText += "<td>"+ info.applicationInfo.loadLabel(packageManager).toString() +"</td>";
-                } else {
-                    htmlText += "<td>Uninstalled application</td>";
-                }
-
+                htmlText += "<td>"+ info.applicationInfo.loadLabel(packageManager).toString() +"</td>";
             } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
+                htmlText += "<td>Uninstalled application</td>";
             }
             if(mPackageInfoList.get(i).getmUsedCount() != 0){
                 htmlText += "<td>"+ mPackageInfoList.get(i).getmUsedCount() +"</td>";
             } else {
-                htmlText += "<td>unidentified</td>";
+                htmlText += "<td>x</td>";
             }
             htmlText += "<td>"+ hmsTimeFormatter(getTotalTimeFromUsage(mPackageInfoList.get(i).getmPackageName())) +"</td>" +
                     "</tr>";
