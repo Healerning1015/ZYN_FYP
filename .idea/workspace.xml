@@ -13,40 +13,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fda580cc-a721-4330-98e7-370bae0e6df3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/curfewtime/Curfew.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/svg_setting.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/AdminFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/AdminFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/AdminSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/AdminSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/EmailAddress.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/setEmail/Email.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/TimeCheckUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/studytime/TimeCheckUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/broadcast/ReceiverAppLock.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/broadcast/ReceiverAppLock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/SetEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/setEmail/SetEmail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/applimits/AppInfosAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/applimits/AppInfosAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/applimits/AppLimits.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/applimits/AppLimits.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/applimits/PatternLockPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/applimits/PatternLockPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/curfewtime/CurfewTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/curfewtime/CurfewTime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/studytime/AddStudyTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/studytime/AddStudyTime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/studytime/AlarmManagerUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/studytime/AlarmManagerUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/studytime/StudyTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/studytime/StudyTime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/home/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/home/HomeFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/home/LearningModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/home/LearningModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/profile/ProfileFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/profile/ProfileFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/usage/EmailReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/setEmail/EmailReceiver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/usage/ServiceSendEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/setEmail/ServiceSendEmail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/usage/UsageFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/usage/UsageFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/usage/domain/UseTimeDataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/usage/domain/UseTimeDataManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/svg_profile.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/admin_set_curfew_time.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/admin_set_curfew_time.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/admin_set_email.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/admin_set_email.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/admin_set_study_time.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/admin_set_study_time.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_admin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_admin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/bottom_nav_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/bottom_nav_menu.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/mobile_navigation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/mobile_navigation.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/setEmail/EmailReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/student/example/myapplication/admin/set/setEmail/EmailReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/used_time_item_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/used_time_item_layout.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,8 +64,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="MQS7N19403028624" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-05-17T10:34:42.480Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_3_XL_API_29" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-05-18T15:32:02.130Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -285,7 +254,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621059368936</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="最终版本">
+      <created>1621351915124</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1621351915124</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -299,7 +275,8 @@
     <MESSAGE value="加入了一些文字提示，最后一页加入了权限管理，待加其他内容" />
     <MESSAGE value="在parent mode加入了修改mode密码和邮箱设置，每日定时发送usage feedback" />
     <MESSAGE value="解决了home页app limit的使用进度条不减少的问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="解决了home页app limit的使用进度条不减少的问题" />
+    <MESSAGE value="最终版本" />
+    <option name="LAST_COMMIT_MESSAGE" value="最终版本" />
   </component>
   <component name="WindowStateProjectService">
     <state x="353" y="145" key="#Inspections" timestamp="1621189159382">
@@ -346,10 +323,10 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="604" y="240" key="AndroidCreateXmlResourceDialog/0.25.1440.875@0.25.1440.875" timestamp="1621235690700" />
-    <state x="0" y="27" key="CommitChangelistDialog2" timestamp="1621059368644">
+    <state x="0" y="27" key="CommitChangelistDialog2" timestamp="1621351914629">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="0" y="27" key="CommitChangelistDialog2/0.25.1440.875@0.25.1440.875" timestamp="1621059368644" />
+    <state x="0" y="27" key="CommitChangelistDialog2/0.25.1440.875@0.25.1440.875" timestamp="1621351914629" />
     <state x="578" y="208" key="FileChooserDialogImpl" timestamp="1614042457688">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
@@ -386,10 +363,10 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="443" y="93" key="SettingsEditor/0.25.1440.875@0.25.1440.875" timestamp="1618325618780" />
-    <state x="401" y="199" key="Vcs.Push.Dialog.v2" timestamp="1621059378428">
+    <state x="401" y="199" key="Vcs.Push.Dialog.v2" timestamp="1621351937921">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="401" y="199" key="Vcs.Push.Dialog.v2/0.25.1440.875@0.25.1440.875" timestamp="1621059378428" />
+    <state x="401" y="199" key="Vcs.Push.Dialog.v2/0.25.1440.875@0.25.1440.875" timestamp="1621351937921" />
     <state x="0" y="25" width="927" height="875" key="dock-window-1" timestamp="1619287843288">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
